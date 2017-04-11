@@ -12,7 +12,7 @@ import {
   View
 } from 'react-native';
 
-export default class Activity extends Component {
+export default class ActivityDemoComponent extends Component {
   render() {
     return (
       <View style={styles.container}>
@@ -50,4 +50,4 @@ const styles = StyleSheet.create({
   },
 });
 
-AppRegistry.registerComponent('ActivityDemo', () => Activity);
+AppRegistry.registerComponent('ActivityDemoComponent', () => ActivityDemoComponent);
