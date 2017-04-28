@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">React Native Android Activity Demo</string>
+    <string name="title_activity_example">ExampleActivity</string>
+    <string name="example_activity_title">Example activity</string>
+    <string name="go_back">Go back!</string>
 </resources>
