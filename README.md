@@ -13,6 +13,27 @@ The starting point for this sample is a slightly tweaked standard RN project as 
 
 ![Android Demo App](img/AndroidScreenShot.png)
 
+## Getting started
+
+* Install [Git](https://git-scm.com/downloads).
+* Install [Node.js](https://nodejs.org/en/download/). Use a shell with Node and Git in the path (or the Node.js shell itself) for all commands.
+* Clone this project: **git clone https://github.com/petterh/react-native-android-activity.git**
+* **cd react-native-android-activity**
+* Update your `npm` package: **npm install -g npm**
+* Install react-native command line: **npm install -g react-native-cli**
+* Run **npm install** to download dependencies
+* Install [Android Studio](https://developer.android.com/studio/install.html) (follow instructions [on this page](https://facebook.github.io/react-native/docs/getting-started.html)).
+* The app loads the JS bundle from your dev box, so start a packager:
+  ```cmd
+  react-native start
+  ```
+* Connect an Android device (or use an emulator).
+* Open the app in Android Studio and run it.
+* If this fails with the message "Could not get BatchedBridge, make sure your bundle is packaged correctly", your packager is likely not running.
+* If it complains about connecting to the dev server, run **adb reverse tcp:8081 tcp:8081**
+* If it crashes while opening the ReactNative controls, try to modify the following phone settings:
+  **Android Settings -> Apps -> Settings once again (the gear) to go to Configure Apps view -> Draw over other apps -> Allow React Native Android Activity Demo to draw over other apps**. (The demo app *should* ask for this automatically, though.)
+
 ## The React Native side
 
 The gist of the JavaScript code looks like this:

@@ -32,14 +32,21 @@ class ActivityStarterModule extends ReactContextBaseJavaModule {
     @ReactMethod
     void navigateToExample() {
         ReactApplicationContext context = getReactApplicationContext();
-        Intent intent = new Intent(context, ExampleActivity.class);
-        context.startActivity(intent);
+        Activity activity = context.getCurrentActivity();
+        if (activity != null) {
+            Intent intent = new Intent(context, ExampleActivity.class);
+            activity.startActivity(intent);
+        }
     }
 
     @ReactMethod
     void dialNumber(@Nonnull String number) {
-        Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + number));
-        getReactApplicationContext().startActivity(intent);
+        ReactApplicationContext context = getReactApplicationContext();
+        Activity activity = context.getCurrentActivity();
+        if (activity != null) {
+            Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + number));
+            activity.startActivity(intent);
+        }
     }
 
     @ReactMethod
