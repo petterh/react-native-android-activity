@@ -22,6 +22,7 @@ public class MainActivity extends ReactActivity {
 
     /**
      * Demonstrates how to add a custom option to the dev menu.
+     * https://stackoverflow.com/a/44882371/3968276
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
