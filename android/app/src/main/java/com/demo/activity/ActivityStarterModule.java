@@ -4,10 +4,15 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 
+import com.facebook.react.ReactInstanceManager;
+import com.facebook.react.ReactNativeHost;
 import com.facebook.react.bridge.Callback;
+import com.facebook.react.bridge.CatalystInstance;
 import com.facebook.react.bridge.ReactApplicationContext;
+import com.facebook.react.bridge.ReactContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
+import com.facebook.react.bridge.WritableNativeArray;
 
 import javax.annotation.Nonnull;
 
@@ -31,18 +36,16 @@ class ActivityStarterModule extends ReactContextBaseJavaModule {
 
     @ReactMethod
     void navigateToExample() {
-        ReactApplicationContext context = getReactApplicationContext();
-        Activity activity = context.getCurrentActivity();
+        Activity activity = getCurrentActivity();
         if (activity != null) {
-            Intent intent = new Intent(context, ExampleActivity.class);
+            Intent intent = new Intent(activity, ExampleActivity.class);
             activity.startActivity(intent);
         }
     }
 
     @ReactMethod
     void dialNumber(@Nonnull String number) {
-        ReactApplicationContext context = getReactApplicationContext();
-        Activity activity = context.getCurrentActivity();
+        Activity activity = getCurrentActivity();
         if (activity != null) {
             Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + number));
             activity.startActivity(intent);
@@ -54,6 +57,24 @@ class ActivityStarterModule extends ReactContextBaseJavaModule {
         Activity activity = getCurrentActivity();
         if (activity != null) {
             callback.invoke(activity.getClass().getSimpleName());
+        }
+    }
+
+    @ReactMethod
+    void callJavaScript() {
+        Activity activity = getCurrentActivity();
+        if (activity != null) {
+            MainApplication application = (MainApplication) activity.getApplication();
+            ReactNativeHost reactNativeHost = application.getReactNativeHost();
+            ReactInstanceManager reactInstanceManager = reactNativeHost.getReactInstanceManager();
+            ReactContext reactContext = reactInstanceManager.getCurrentReactContext();
+
+            if (reactContext != null) {
+                CatalystInstance catalystInstance = reactContext.getCatalystInstance();
+                WritableNativeArray params = new WritableNativeArray();
+                params.pushString("Hello, JavaScript!");
+                catalystInstance.callFunction("JavaScriptVisibleToJava", "alert", params);
+            }
         }
     }
 }

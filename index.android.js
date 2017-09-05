@@ -1,7 +1,6 @@
 /**
  * Sample React Native App
  * https://github.com/facebook/react-native
- * @flow
  */
 
 import React, { Component } from 'react';
@@ -14,6 +13,17 @@ import {
   Text,
   View
 } from 'react-native';
+
+import BatchedBridge from "react-native/Libraries/BatchedBridge/BatchedBridge";
+
+export class ExposedToJava {
+  alert(message) {
+      alert(message);
+  }
+}
+
+const exposedToJava = new ExposedToJava();
+BatchedBridge.registerCallableModule("JavaScriptVisibleToJava", exposedToJava);
 
 export default class ActivityDemoComponent extends Component {
   render() {
@@ -46,6 +56,10 @@ export default class ActivityDemoComponent extends Component {
             onPress={() => NativeModules.Clipboard.setString("Hello from JavaScript!")}
             title='Copy to clipboard'
           />
+          <Button
+            onPress={() => NativeModules.ActivityStarter.callJavaScript()}
+            title='Call JavaScript from Java'
+          />
         </View>
       </View>
     );
@@ -54,7 +68,7 @@ export default class ActivityDemoComponent extends Component {
 
 const styles = StyleSheet.create({
   buttonContainer: {
-    height: 160,
+    height: 250,
     width: 220,
     justifyContent: 'space-between',
     marginTop: 50,
