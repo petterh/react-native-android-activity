@@ -254,6 +254,14 @@ BatchedBridge.registerCallableModule("JavaScriptVisibleToJava", exposedToJava);
 1. `ActivityStarterModule` returns "ActivityStarter" from its `getName` method, and annotates three methods with the `ReactMethod` attribute.
 1. JavaScript can access `ActivityStarter.getActivityName` and friends via `NativeModules`.
 
+## Addendum
+
+I just added a second version of `ActivityStarterModile.getActivityName` called `getActivityNameAsPromise`, with a corresponding button.
+
+## Further reading
+
+[Native Modules](https://facebook.github.io/react-native/docs/native-modules-android.html)
+
 ## iOS
 
 This is primarily an Android sample &ndash; but if I can lay my hands on a Mac, or enlist the help of someone with a Mac, I'll add the corresponding functionality to the iOS version of the app.

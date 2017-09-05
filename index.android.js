@@ -53,6 +53,17 @@ export default class ActivityDemoComponent extends Component {
             title='Get activity name'
           />
           <Button
+            onPress={async () => {
+              try {
+                var name = await NativeModules.ActivityStarter.getActivityNameAsPromise();
+                alert(name);
+                } catch (e) {
+                  alert(e.message);
+                }
+              }}
+            title='Get activity name as promise'
+          />
+          <Button
             onPress={() => NativeModules.Clipboard.setString("Hello from JavaScript!")}
             title='Copy to clipboard'
           />
@@ -68,7 +79,7 @@ export default class ActivityDemoComponent extends Component {
 
 const styles = StyleSheet.create({
   buttonContainer: {
-    height: 250,
+    height: 300,
     width: 220,
     justifyContent: 'space-between',
     marginTop: 50,
