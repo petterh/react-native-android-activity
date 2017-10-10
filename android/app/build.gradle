@@ -19,7 +19,7 @@ project.ext.react = [
   entryFile: "index.android.js",
 
   // whether to bundle JS and assets in debug mode
-  bundleInDebug: false,
+  bundleInDebug: true,
 
   // whether to bundle JS and assets in release mode
   bundleInRelease: true,
@@ -84,6 +84,19 @@ def enableProguardInReleaseBuilds = false
 
 android {
     compileSdkVersion 25
+    buildToolsVersion "25.0.3"
+
+    defaultConfig {
+        applicationId "com.demo.activity"
+        minSdkVersion 16
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        ndk {
+            abiFilters "armeabi-v7a", "x86"
+        }
+    }
+
     splits {
         abi {
             reset()
@@ -91,25 +104,15 @@ android {
             universalApk false  // If true, also generate a universal APK
             include "armeabi-v7a", "x86"
         }
-        buildToolsVersion "25.0.2"
-
-        defaultConfig {
-            applicationId "com.activity"
-            minSdkVersion 16
-            targetSdkVersion 25
-            versionCode 1
-            versionName "1.0"
-            ndk {
-                abiFilters "armeabi-v7a", "x86"
-            }
-        }
     }
+
     buildTypes {
         release {
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }
     }
+
     // applicationVariants are e.g. debug, release
     applicationVariants.all { variant ->
         variant.outputs.each { output ->
