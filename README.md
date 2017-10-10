@@ -258,6 +258,10 @@ BatchedBridge.registerCallableModule("JavaScriptVisibleToJava", exposedToJava);
 
 I just added a second version of `ActivityStarterModile.getActivityName` called `getActivityNameAsPromise`, with a corresponding button.
 
+## Addendum 2
+
+[I just added event triggering, another way to communicate](https://github.com/petterh/react-native-android-activity/commit/e63706e2ca828d4de4db1bf7cf85fe5be28d648d). Tap **Start Example Activity**, then **Trigger event**.
+
 ## Further reading
 
 [Native Modules](https://facebook.github.io/react-native/docs/native-modules-android.html)
