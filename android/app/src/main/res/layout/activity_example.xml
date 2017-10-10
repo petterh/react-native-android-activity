@@ -22,7 +22,15 @@
         android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
         android:text="@string/go_back"
+    />
+    <Button
+        android:id="@+id/call_callback_btn"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/trigger_event"
     />
 
 </LinearLayout>

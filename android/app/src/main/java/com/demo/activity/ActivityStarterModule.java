@@ -14,16 +14,30 @@ import com.facebook.react.bridge.ReactContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.WritableNativeArray;
+import com.facebook.react.bridge.WritableNativeMap;
+import com.facebook.react.modules.core.DeviceEventManagerModule;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
 
 /**
  * Expose Java to JavaScript.
  */
 class ActivityStarterModule extends ReactContextBaseJavaModule {
 
+    private static DeviceEventManagerModule.RCTDeviceEventEmitter eventEmitter = null;
+
     ActivityStarterModule(ReactApplicationContext reactContext) {
         super(reactContext);
+    }
+
+    @Override
+    public void initialize() {
+        super.initialize();
+        eventEmitter = getReactApplicationContext().getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class);
     }
 
     /**
@@ -33,6 +47,14 @@ class ActivityStarterModule extends ReactContextBaseJavaModule {
     @Override
     public String getName() {
         return "ActivityStarter";
+    }
+
+    @Nullable
+    @Override
+    public Map<String, Object> getConstants() {
+        final Map<String, Object> constants = new HashMap<>();
+        constants.put("MyEventName", "MyEventValue");
+        return constants;
     }
 
     @ReactMethod
@@ -85,5 +107,12 @@ class ActivityStarterModule extends ReactContextBaseJavaModule {
                 catalystInstance.callFunction("JavaScriptVisibleToJava", "alert", params);
             }
         }
+    }
+
+    /**
+     * To pass an object instead of a simple string, create a {@link WritableNativeMap} and populate it.
+     */
+    static void triggerAlert(@Nonnull String message) {
+        eventEmitter.emit("MyEventValue", message);
     }
 }

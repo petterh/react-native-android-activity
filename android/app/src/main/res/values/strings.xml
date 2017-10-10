@@ -4,4 +4,5 @@
     <string name="example_activity_title">Example activity</string>
     <string name="go_back">Go back!</string>
     <string name="call_javascript_method">Call JavaScript method</string>
+    <string name="trigger_event">Trigger event</string>
 </resources>
