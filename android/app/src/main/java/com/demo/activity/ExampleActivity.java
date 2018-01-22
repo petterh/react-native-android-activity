@@ -23,7 +23,7 @@ public class ExampleActivity extends ReactActivity {
         findViewById(R.id.call_callback_btn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ActivityStarterModule.triggerAlert("Hello from " + getClass().getSimpleName());
+                ActivityStarterModule.triggerAlert("Hello from " + ExampleActivity.class.getSimpleName());
             }
         });
     }
