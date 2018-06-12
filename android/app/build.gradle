@@ -128,10 +128,10 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: "libs", include: ["*.jar"])
-    compile "com.android.support:appcompat-v7:27.0.2"
-    compile("com.facebook.react:react-native:0.48.1") {
-        exclude group: "com.android.support"
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation('com.facebook.react:react-native:0.55.3') {
+        exclude group: 'com.android.support'
     }
 }
 

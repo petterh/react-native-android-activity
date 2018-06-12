@@ -25,9 +25,11 @@ The starting point for this sample is a slightly tweaked standard RN project as 
 * Run **npm install** to download dependencies
 * Install [Android Studio](https://developer.android.com/studio/install.html) (follow instructions [on this page](https://facebook.github.io/react-native/docs/getting-started.html)).
 * By default, the debug build of the app loads the JS bundle from your dev box, so start a packager:
+
   ```cmd
   npm run start
   ```
+
 * Connect an Android device via USB, or use an emulator.
 * Open the app in Android Studio and run it.
 * If this fails with the message "Could not get BatchedBridge, make sure your bundle is packaged correctly", your packager is likely not running.
@@ -126,7 +128,7 @@ class ActivityStarterModule extends ReactContextBaseJavaModule {
 
 The name of this class doesn't matter; the `ActivityStarter` module name exposed to JavaScript comes from the `getName()` method.
 
-Each method annotated with a `@ReactMethod` attribute is accessible from JavaSCript. Overloads are not allowed, though; you have to know the method signatures. (The out-of-the-box `Clipboard` module isn't usually accessed the way I do it here; React Native includes [`Clipboard.js`](https://github.com/facebook/react-native/blob/master/Libraries/Components/Clipboard/Clipboard.js), which [makes the thing more accessible from JavaScript](https://facebook.github.io/react-native/docs/clipboard.html) &ndash; if you're creating modules for public consumption, consider doing something similar.)
+Each method annotated with a `@ReactMethod` attribute is accessible from JavaScript. Overloads are not allowed, though; you have to know the method signatures. (The out-of-the-box `Clipboard` module isn't usually accessed the way I do it here; React Native includes [`Clipboard.js`](https://github.com/facebook/react-native/blob/master/Libraries/Components/Clipboard/Clipboard.js), which [makes the thing more accessible from JavaScript](https://facebook.github.io/react-native/docs/clipboard.html) &ndash; if you're creating modules for public consumption, consider doing something similar.)
 
 A `@ReactMethod` must be of type `void`. In the case of `getActivityName()` we want to return a string; we do this by using a callback.
 
@@ -256,7 +258,7 @@ BatchedBridge.registerCallableModule("JavaScriptVisibleToJava", exposedToJava);
 
 ## Addendum
 
-I just added a second version of `ActivityStarterModile.getActivityName` called `getActivityNameAsPromise`, with a corresponding button.
+I just added a second version of `ActivityStarterModule.getActivityName` called `getActivityNameAsPromise`, with a corresponding button.
 
 ## Addendum 2
 
