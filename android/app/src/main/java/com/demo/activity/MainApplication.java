@@ -1,6 +1,8 @@
 package com.demo.activity;
 
 import android.app.Application;
+import android.support.annotation.CallSuper;
+import android.support.annotation.NonNull;
 
 import com.facebook.react.ReactApplication;
 import com.facebook.react.ReactNativeHost;
@@ -29,11 +31,13 @@ public class MainApplication extends Application implements ReactApplication {
     };
 
     @Override
+    @NonNull
     public ReactNativeHost getReactNativeHost() {
         return mReactNativeHost;
     }
 
     @Override
+    @CallSuper
     public void onCreate() {
         super.onCreate();
         SoLoader.init(this, false);

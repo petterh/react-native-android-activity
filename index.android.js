@@ -20,7 +20,7 @@ import BatchedBridge from "react-native/Libraries/BatchedBridge/BatchedBridge";
 
 export class ExposedToJava {
   alert(message) {
-      alert(message);
+      alert(message + "\n\nBe aware that this way of calling JavaScript is officially undocumented.\n\nIf possible, use events instead.");
   }
 }
 
@@ -37,7 +37,9 @@ export default class ActivityDemoComponent extends Component {
           Welcome to React Native!
         </Text>
         <Text style={styles.instructions}>
-          To get started, edit index.android.js
+          <Text>To get started, edit </Text>
+          <Text style={styles.bold}>index.android.js</Text>
+          <Text>.</Text>
         </Text>
         <Text style={styles.instructions}>
           Double tap R on your keyboard to reload,{'\n'}
@@ -65,14 +67,14 @@ export default class ActivityDemoComponent extends Component {
               try {
                 var name = await activityStarter.getActivityNameAsPromise();
                 alert(name);
-                } catch (e) {
-                  alert(e.message);
-                }
-              }}
+              } catch (e) {
+                alert("Error: " + e.message);
+              }
+            }}
             title='Get activity name as promise'
           />
           <Button
-            onPress={() => NativeModules.Clipboard.setString("Hello from JavaScript!")}
+            onPress={() => NativeModules.Clipboard.setString("Copied to clipboard from JavaScript!")}
             title='Copy to clipboard'
           />
           <Button
@@ -86,6 +88,9 @@ export default class ActivityDemoComponent extends Component {
 }
 
 const styles = StyleSheet.create({
+  bold: {
+    fontWeight: "bold",
+  },
   buttonContainer: {
     height: 300,
     width: "80%",
@@ -96,12 +101,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+    backgroundColor: '#E5ECFF',
   },
   instructions: {
     textAlign: 'center',
@@ -109,12 +109,18 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
   textInput: {
+    backgroundColor: 'white',
+    borderColor: 'gray',
+    borderWidth: 1,
     height: 40,
-    width: "80%",
     marginTop: 20,
     textAlign: "center",
-    borderColor: 'gray',
-    borderWidth: 1
+    width: "80%",
+  },
+  welcome: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 10,
   },
 });
 

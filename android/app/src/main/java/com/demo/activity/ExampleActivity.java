@@ -2,6 +2,8 @@ package com.demo.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.support.annotation.CallSuper;
+import android.support.annotation.Nullable;
 import android.view.View;
 
 /**
@@ -11,7 +13,8 @@ import android.view.View;
 public class ExampleActivity extends Activity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    @CallSuper
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_example);
 

@@ -1,6 +1,6 @@
 # react-native-android-activity
 
-This sample demonstrates the interface between React Native JavaScript and Java code in the Android host application. It can do the following:
+This sample, which grew out of a [question on Stack Overflow](https://stackoverflow.com/questions/42253397/call-android-activity-from-react-native-code/43675819), demonstrates the interface between React Native JavaScript and Java code in the Android host application. It can do the following:
 
 * JavaScript calling into native modules:
   * Navigate from React Native to a Java activity internal to the host app;
@@ -61,6 +61,7 @@ export default class ActivityDemoComponent extends Component {
         <Text style={styles.instructions}>
           To get started, edit index.android.js
         </Text>
+        <!-- Menu buttons: https://facebook.github.io/react-native/docs/debugging -->
         <Text style={styles.instructions}>
           Double tap R on your keyboard to reload,{'\n'}
           Shake or press menu button for dev menu

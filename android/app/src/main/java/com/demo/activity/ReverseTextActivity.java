@@ -3,6 +3,7 @@ package com.demo.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.widget.TextView;
 
 /**
@@ -19,7 +20,8 @@ public class ReverseTextActivity extends Activity {
         this.<TextView>findViewById(R.id.reverse_text).setText(reverse(text));
     }
 
-    private CharSequence reverse(CharSequence text) {
+    @NonNull
+    private CharSequence reverse(@NonNull CharSequence text) {
         StringBuilder sb = new StringBuilder();
         for (int i = text.length() - 1; i >= 0; --i) {
             sb.append(text.charAt(i));

@@ -11,6 +11,7 @@ import java.util.List;
 
 /**
  * Exposes {@link ActivityStarterModule} to JavaScript.
+ * One {@link ReactPackage} can expose multiple {@link NativeModule}s.
  */
 class ActivityStarterReactPackage implements ReactPackage {
     @Override

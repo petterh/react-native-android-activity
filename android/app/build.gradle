@@ -68,7 +68,6 @@ project.ext.react = [
   // extraPackagerArgs: []
 ]
 
-
 apply from: "../../node_modules/react-native/react.gradle"
 
 /**
@@ -93,8 +92,8 @@ android {
         applicationId "com.demo.activity"
         minSdkVersion 23
         targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "2.0"
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }

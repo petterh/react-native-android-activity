@@ -24,7 +24,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 
 /**
- * Expose Java to JavaScript.
+ * Expose Java to JavaScript. Methods annotated with {@link ReactMethod} are exposed.
  */
 class ActivityStarterModule extends ReactContextBaseJavaModule {
 
@@ -80,6 +80,8 @@ class ActivityStarterModule extends ReactContextBaseJavaModule {
         Activity activity = getCurrentActivity();
         if (activity != null) {
             callback.invoke(activity.getClass().getSimpleName());
+        } else {
+            callback.invoke("No current activity");
         }
     }
 
@@ -88,6 +90,8 @@ class ActivityStarterModule extends ReactContextBaseJavaModule {
         Activity activity = getCurrentActivity();
         if (activity != null) {
             promise.resolve(activity.getClass().getSimpleName());
+        } else {
+            promise.reject("NO_ACTIVITY", "No current activity");
         }
     }
 
