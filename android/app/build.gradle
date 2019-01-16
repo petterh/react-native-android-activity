@@ -91,7 +91,7 @@ android {
 
     defaultConfig {
         applicationId "com.demo.activity"
-        minSdkVersion 16
+        minSdkVersion 23
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"

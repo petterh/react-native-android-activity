@@ -8,6 +8,7 @@ This sample demonstrates the interface between React Native JavaScript and Java 
   * Query the host app for information;
   * Copy information to the clipboard.
 * Java calling into JavaScript
+* Verify that custom edit menu extensions work with React Native `TextInput`
 
 The first three use a custom native module called `ActivityStarter`; the fourth uses the native module `Clipboard`, which [comes with React Native out of the box](https://github.com/facebook/react-native/blob/master/ReactAndroid/src/main/java/com/facebook/react/modules/clipboard/ClipboardModule.java). Technically there is no difference. The final one invokes `ActivityStarter.callJavaScript`, which in turn calls a JavaScript method from Java.
 

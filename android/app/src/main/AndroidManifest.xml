@@ -29,6 +29,16 @@
             android:name=".ExampleActivity"
             android:label="@string/title_activity_example"
         />
+        <!-- See https://medium.com/androiddevelopers/custom-text-selection-actions-with-action-process-text-191f792d2999 -->
+        <activity
+            android:name=".ReverseTextActivity"
+            android:label="@string/menuitem_reverse_text_label">
+            <intent-filter>
+                <action android:name="android.intent.action.PROCESS_TEXT" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="text/plain" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

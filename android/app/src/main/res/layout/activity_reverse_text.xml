@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.demo.activity.ReverseTextActivity">
+
+    <TextView
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="36dp"
+        android:layout_marginTop="36dp"
+        android:text="@string/reverse_text_activity_title"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        />
+
+    <TextView
+        android:id="@+id/reverse_text"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="36dp"
+        android:layout_marginTop="36dp"
+        android:textSize="24sp"
+        tools:ignore="HardcodedText"
+        tools:text="Reversed text goes here"
+        />
+
+</LinearLayout>

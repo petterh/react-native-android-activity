@@ -12,6 +12,7 @@ import {
   NativeModules,
   StyleSheet,
   Text,
+  TextInput,
   View
 } from 'react-native';
 
@@ -42,6 +43,10 @@ export default class ActivityDemoComponent extends Component {
           Double tap R on your keyboard to reload,{'\n'}
           Shake or press menu button for dev menu
         </Text>
+        <TextInput
+          style={styles.textInput}
+          value='Demo text for custom edit menu'
+        />
         <View style={styles.buttonContainer}>
           <Button
             onPress={() => activityStarter.navigateToExample()}
@@ -83,9 +88,9 @@ export default class ActivityDemoComponent extends Component {
 const styles = StyleSheet.create({
   buttonContainer: {
     height: 300,
-    width: 220,
+    width: "80%",
     justifyContent: 'space-between',
-    marginTop: 50,
+    marginTop: 30,
   },
   container: {
     flex: 1,
@@ -102,6 +107,14 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#333333',
     marginBottom: 5,
+  },
+  textInput: {
+    height: 40,
+    width: "80%",
+    marginTop: 20,
+    textAlign: "center",
+    borderColor: 'gray',
+    borderWidth: 1
   },
 });
 
