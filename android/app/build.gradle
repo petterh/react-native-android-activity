@@ -8,23 +8,27 @@ import com.android.build.OutputFile
  * These basically call `react-native bundle` with the correct arguments during the Android build
  * cycle. By default, bundleDebugJsAndAssets is skipped, as in debug/dev mode we prefer to load the
  * bundle directly from the development server. Below you can see all the possible configurations
- * and their defaults. If you decide to add a configuration block, make sure to add it before the
- * `apply from: "../../node_modules/react-native/react.gradle"` line.
+ * and their defaults.
+ *
+ * Warning: If you set jsBundleDir{Debug|Release}, packaging the bundle into assets may not work
+ * as expected, because the following workaround doesn't apply in that case:
+ * https://github.com/facebook/react-native/pull/21408
  */
 project.ext.react = [
-  // the name of the generated asset file containing your JS bundle
+  // The name of the generated asset file containing your JS bundle
   // bundleAssetName: "index.android.bundle",
 
-  // the entry file for bundle generation
+  // The entry file for bundle generation
   // entryFile: "index.android.js",
 
-  // whether to bundle JS and assets in debug mode
+  // Whether to bundle JS and assets in debug mode. Set this to false if you want to load
+  // JavaScript from a bundler.
   bundleInDebug: true,
 
-  // whether to bundle JS and assets in release mode
+  // Whether to bundle JS and assets in release mode
   bundleInRelease: true,
 
-  // whether to bundle JS and assets in another build variant (if configured).
+  // Whether to bundle JS and assets in another build variant (if configured).
   // See http://tools.android.com/tech-docs/new-build-system/user-guide#TOC-Build-Variants
   // The configuration property can be in the following formats
   //         'bundleIn${productFlavor}${buildType}'
@@ -33,34 +37,34 @@ project.ext.react = [
   // bundleInPaidRelease: true,
   // bundleInBeta: true,
 
-  // the root of your project, i.e. where "package.json" lives
+  // The root of your project, i.e. where "package.json" lives
   // root: "../../",
 
-  // where to put the JS bundle asset in debug mode
+  // Where to put the JS bundle asset in debug mode
   // jsBundleDirDebug: "$buildDir/intermediates/assets/debug",
 
-  // where to put the JS bundle asset in release mode
+  // Where to put the JS bundle asset in release mode
   // jsBundleDirRelease: "$buildDir/intermediates/assets/release",
 
-  // where to put drawable resources / React Native assets, e.g. the ones you use via
+  // Where to put drawable resources / React Native assets, e.g. the ones you use via
   // require('./image.png')), in debug mode
   // resourcesDirDebug: "$buildDir/intermediates/res/merged/debug",
 
-  // where to put drawable resources / React Native assets, e.g. the ones you use via
+  // Where to put drawable resources / React Native assets, e.g. the ones you use via
   // require('./image.png')), in release mode
   // resourcesDirRelease: "$buildDir/intermediates/res/merged/release",
 
-  // by default the gradle tasks are skipped if none of the JS files or assets change; this means
+  // By default the gradle tasks are skipped if none of the JS files or assets change; this means
   // that we don't look at files in android/ or ios/ to determine whether the tasks are up to
   // date; if you have any other folders that you want to ignore for performance reasons (gradle
   // indexes the entire tree), add them here. Alternatively, if you have JS files in android/
   // for example, you might want to remove it from here.
   // inputExcludes: ["android/**", "ios/**"],
 
-  // override which node gets called and with what additional arguments
+  // Override which node gets called and with what additional arguments
   // nodeExecutableAndArgs: ["node"],
 
-  // supply additional arguments to the packager
+  // Supply additional arguments to the packager
   // extraPackagerArgs: []
 ]
 
