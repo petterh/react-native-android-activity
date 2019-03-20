@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.demo.activity">
+
+    <!--
+        Only required for debug version. See link for details.
+        https://facebook.github.io/react-native/docs/removing-default-permissions
+    -->
+    <uses-permission tools:node="remove" android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+</manifest>

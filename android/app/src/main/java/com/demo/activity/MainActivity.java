@@ -18,7 +18,7 @@ import com.facebook.react.devsupport.interfaces.DevSupportManager;
  */
 public class MainActivity extends ReactActivity {
 
-    public static final String CUSTOM_DEV_OPTION_MESSAGE = "Hello from custom dev option!";
+    private static final String CUSTOM_DEV_OPTION_MESSAGE = "Hello from custom dev option!";
 
     /**
      * Returns the name of the main component registered from JavaScript.

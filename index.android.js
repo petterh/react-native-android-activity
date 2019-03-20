@@ -19,8 +19,18 @@ import {
 import BatchedBridge from "react-native/Libraries/BatchedBridge/BatchedBridge";
 
 export class ExposedToJava {
+  extraMessage = "Be aware that this way of calling JavaScript is officially undocumented.\n\nIf possible, use events instead!";
+
+  setMessage(message) {
+    this.extraMessage = message;
+  }
+
+  /**
+   * If this is called from an activity that doesn't forward Android life-cycle events
+   * to React Native, the alert will appear to do nothing.
+   */
   alert(message) {
-      alert(message + "\n\nBe aware that this way of calling JavaScript is officially undocumented.\n\nIf possible, use events instead.");
+      alert(message + "\n\n" + this.extraMessage);
   }
 }
 

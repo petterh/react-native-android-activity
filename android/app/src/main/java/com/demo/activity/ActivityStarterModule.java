@@ -116,7 +116,7 @@ class ActivityStarterModule extends ReactContextBaseJavaModule {
     /**
      * To pass an object instead of a simple string, create a {@link WritableNativeMap} and populate it.
      */
-    static void triggerAlert(@Nonnull String message) {
+    static void emitEvent(@Nonnull String message) {
         eventEmitter.emit("MyEventValue", message);
     }
 }

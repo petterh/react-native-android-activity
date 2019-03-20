@@ -17,20 +17,35 @@
         android:textSize="36sp"
         android:textStyle="bold"
     />
-    <Button
-        android:id="@+id/go_back_button"
-        android:layout_gravity="center"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
-        android:text="@string/go_back"
-    />
-    <Button
-        android:id="@+id/trigger_alert_button"
         android:layout_gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/trigger_event"
-    />
+        android:orientation="vertical"
+        >
+        <Button
+            android:id="@+id/go_back_button"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:text="@string/go_back"
+            />
+        <Button
+            android:id="@+id/trigger_alert_button"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:text="@string/trigger_event"
+            />
+        <Button
+            android:id="@+id/call_javascript_button"
+            android:layout_gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/call_javascript_from_java"
+            />
+    </LinearLayout>
 
 </LinearLayout>
