@@ -50,4 +50,10 @@ RCT_REMAP_METHOD(getActivityNameAsPromise,
   resolve(@[@"ActivityStarter (promise)"]);
 }
 
+RCT_EXPORT_METHOD(callJavaScript)
+{
+  AppDelegate *appDelegate = (AppDelegate *) [UIApplication sharedApplication].delegate;
+  [appDelegate callJavaScript];
+}
+
 @end

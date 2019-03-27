@@ -20,6 +20,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+  self.reactBridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:launchOptions];
+
   NSURL *jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index.ios" fallbackResource:nil];
 
   RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
@@ -46,6 +48,19 @@
 - (void) navigateBack
 {
   [navigationController popViewControllerAnimated:YES];
+}
+
+- (void) callJavaScript
+{
+  [self.reactBridge enqueueJSCall:@"JavaScriptVisibleToJava"
+                           method:@"alert"
+                             args:@[@"Hello, JavaScript!"]
+                       completion:nil];
+}
+
+- (NSURL *)sourceURLForBridge:(RCTBridge *)bridge {
+  NSURL *jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index.ios" fallbackResource:nil];
+  return jsCodeLocation;
 }
 
 @end
