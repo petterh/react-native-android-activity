@@ -3,6 +3,8 @@ package com.demo.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 
 import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactNativeHost;
@@ -21,7 +23,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 
 /**
  * Expose Java to JavaScript. Methods annotated with {@link ReactMethod} are exposed.
@@ -76,7 +77,7 @@ class ActivityStarterModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    void getActivityName(@Nonnull Callback callback) {
+    void getActivityName(@NonNull Callback callback) {
         Activity activity = getCurrentActivity();
         if (activity != null) {
             callback.invoke(activity.getClass().getSimpleName());
@@ -86,7 +87,7 @@ class ActivityStarterModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    void getActivityNameAsPromise(@Nonnull Promise promise) {
+    void getActivityNameAsPromise(@NonNull Promise promise) {
         Activity activity = getCurrentActivity();
         if (activity != null) {
             promise.resolve(activity.getClass().getSimpleName());
@@ -116,7 +117,7 @@ class ActivityStarterModule extends ReactContextBaseJavaModule {
     /**
      * To pass an object instead of a simple string, create a {@link WritableNativeMap} and populate it.
      */
-    static void emitEvent(@Nonnull String message) {
+    static void emitEvent(@NonNull String message) {
         eventEmitter.emit("MyEventValue", message);
     }
 }
