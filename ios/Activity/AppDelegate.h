@@ -13,4 +13,7 @@
 
 @property (nonatomic, strong) UIWindow *window;
 
+- (void) navigateToExampleView;
+- (void) navigateBack;
+
 @end

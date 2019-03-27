@@ -8,7 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIAlertController.h>
+#import <UIKit/UINavigationController.h>
 #import "ActivityStarterModule.h"
+#import "AppDelegate.h"
+#import "ExampleView.h"
 
 @implementation ActivityStarterModule
 
@@ -16,14 +19,10 @@ RCT_EXPORT_MODULE(ActivityStarter);
 
 RCT_EXPORT_METHOD(navigateToExample)
 {
-  UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Hello world"
-                                                                 message:@"Message"
-                                                          preferredStyle:UIAlertControllerStyleAlert];
-
-  UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"OK"
-                                                          style:UIAlertActionStyleDefault
-                                                        handler:^(UIAlertAction *_Nonnull action) {}];
-  [alert addAction:defaultAction];
+  dispatch_async(dispatch_get_main_queue(), ^{
+    AppDelegate *appDelegate = (AppDelegate *) [UIApplication sharedApplication].delegate;
+    [appDelegate navigateToExampleView];
+  });
 }
 
 RCT_EXPORT_METHOD(dialNumber:(NSString *) number)

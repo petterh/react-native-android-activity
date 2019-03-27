@@ -7,18 +7,20 @@
  * of patent rights can be found in the PATENTS file in the same directory.
  */
 
-#import "AppDelegate.h"
-
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
 
+#import "AppDelegate.h"
+#import "ExampleView.h"
+
 @implementation AppDelegate
+{
+  UINavigationController *navigationController;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  NSURL *jsCodeLocation;
-
-  jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index.ios" fallbackResource:nil];
+  NSURL *jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index.ios" fallbackResource:nil];
 
   RCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation
                                                       moduleName:@"ActivityDemoComponent"
@@ -29,9 +31,21 @@
   self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
   UIViewController *rootViewController = [UIViewController new];
   rootViewController.view = rootView;
-  self.window.rootViewController = rootViewController;
+  navigationController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
+  self.window.rootViewController = navigationController;
   [self.window makeKeyAndVisible];
   return YES;
+}
+
+- (void) navigateToExampleView
+{
+  ExampleView *viewController = [[ExampleView alloc] initWithNibName:@"ExampleView" bundle:nil];
+  [navigationController pushViewController:viewController animated:YES];
+}
+
+- (void) navigateBack
+{
+  [navigationController popViewControllerAnimated:YES];
 }
 
 @end
