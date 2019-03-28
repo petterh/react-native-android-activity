@@ -10,6 +10,7 @@ import {
   Button,
   NativeEventEmitter,
   NativeModules,
+  Platform,
   StyleSheet,
   Text,
   TextInput,
@@ -61,11 +62,16 @@ export default class ActivityDemoComponent extends Component {
           Double tap R on your keyboard to reload,{'\n'}
           Shake or press menu button for dev menu
         </Text>
-        <TextInput
-          style={styles.textInput}
-          value={this.state.text}
-          onChangeText={(text) => this.setState({text})}
-        />
+        {
+          Platform.select({
+            android: (
+              <TextInput
+                style={styles.textInput}
+                value={this.state.text}
+                onChangeText={(text) => this.setState({text})}
+              />)
+          })
+        }
         <View style={styles.buttonContainer}>
           <Button
             onPress={() => activityStarter.navigateToExample()}
