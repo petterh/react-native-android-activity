@@ -9,6 +9,8 @@ import android.widget.TextView;
 /**
  * Handles custom edit menu "Reverse string" item.
  * https://medium.com/androiddevelopers/custom-text-selection-actions-with-action-process-text-191f792d2999
+ *
+ * (This has nothing to do with React Native, to be sure.)
  */
 public class ReverseTextActivity extends Activity {
 
