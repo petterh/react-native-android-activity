@@ -41,11 +41,16 @@ const activityStarter = NativeModules.ActivityStarter;
 const eventEmitterModule = NativeModules.EventEmitter;
 
 export default class ActivityDemoComponent extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { text: 'Demo text for custom edit menu' };
+  }
+
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          Welcome to React Very Native!
+          Welcome to React Native!
         </Text>
         <Text style={styles.instructions}>
           <Text>To get started, edit </Text>
@@ -58,7 +63,8 @@ export default class ActivityDemoComponent extends Component {
         </Text>
         <TextInput
           style={styles.textInput}
-          value='Demo text for custom edit menu'
+          value={this.state.text}
+          onChangeText={(text) => this.setState({text})}
         />
         <View style={styles.buttonContainer}>
           <Button
@@ -138,4 +144,7 @@ const styles = StyleSheet.create({
 AppRegistry.registerComponent('ActivityDemoComponent', () => ActivityDemoComponent);
 
 const eventEmitter = new NativeEventEmitter(eventEmitterModule);
-eventEmitter.addListener(eventEmitterModule.MyEventName, (params) => alert(params));
+eventEmitter.addListener(eventEmitterModule.MyEventName, (params) => {
+  exposedToJava.setMessage(params);
+  alert(params);
+});

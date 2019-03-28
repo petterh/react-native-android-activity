@@ -63,9 +63,8 @@ export default class ActivityDemoComponent extends Component {
         </Text>
         <TextInput
           style={styles.textInput}
-          value={(this.state && this.state.text) || "Not set"}
+          value={this.state.text}
           onChangeText={(text) => this.setState({text})}
-          editable={true}
         />
         <View style={styles.buttonContainer}>
           <Button

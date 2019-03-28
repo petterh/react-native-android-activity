@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.CallSuper;
 import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityCompat;
 import android.view.View;
 import android.widget.Toast;
 
@@ -19,7 +18,7 @@ import com.facebook.react.bridge.WritableNativeArray;
  * Activity to start from React Native JavaScript, triggered via
  * {@link ActivityStarterModule#navigateToExample()}.
  */
-public class ExampleActivity extends Activity {
+public class ExampleActivity extends ReactActivity {
 
     @Override
     @CallSuper
@@ -37,11 +36,19 @@ public class ExampleActivity extends Activity {
         findViewById(R.id.trigger_alert_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                // The target of this event does two things:
+                // 1. It sets the "extra text" that shows up when you tap "Call JavaScript from Java"
+                //    on the front page. This should always work.
+                // 2. It calls "alert". This does note work unless this activity forwards lifecycle
+                //    events to React Native. The easiest way to do that is to inherit ReactActivity
+                //    instead of ReactActivity, but you can code it yourself if you want.
+                // The iOS version does not suffer from this problem.
                 EventEmitterModule.emitEvent("Hello from " + ExampleActivity.class.getSimpleName());
+                Toast.makeText(ExampleActivity.this, "Extra message was changed", Toast.LENGTH_SHORT).show();
             }
         });
 
-        findViewById(R.id.set_extra_message).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.call_javascript_from_java).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 MainApplication application = (MainApplication) ExampleActivity.this.getApplication();
@@ -56,9 +63,15 @@ public class ExampleActivity extends Activity {
 
                     // AFAIK, this approach to communicate from Java to JavaScript is officially undocumented.
                     // Use at own risk; prefer events.
+
                     // Note: Here we call 'setMessage', which does not show UI. That means it is okay
                     // to call it from an activity that doesn't forward lifecycle events to React Native.
                     catalystInstance.callFunction("JavaScriptVisibleToJava", "setMessage", params);
+
+                    // Note: Here we call 'alert', which does show UI. That means it does nothing if
+                    // called from an activity that doesn't forward lifecycle events to React Native.
+                    // See comments on EventEmitterModule.emitEvent above.
+                    catalystInstance.callFunction("JavaScriptVisibleToJava", "alert", params);
                     Toast.makeText(ExampleActivity.this, "Extra message was changed", Toast.LENGTH_SHORT).show();
                 }
             }
