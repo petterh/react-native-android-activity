@@ -1,6 +1,5 @@
 package com.demo.activity;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.CallSuper;
 import android.support.annotation.Nullable;
@@ -48,7 +47,7 @@ public class ExampleActivity extends ReactActivity {
             }
         });
 
-        findViewById(R.id.call_javascript_from_java).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.call_javascript_button).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 MainApplication application = (MainApplication) ExampleActivity.this.getApplication();

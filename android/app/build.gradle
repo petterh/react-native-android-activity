@@ -23,7 +23,7 @@ project.ext.react = [
 
   // Whether to bundle JS and assets in debug mode. Set this to false if you want to load
   // JavaScript from a bundler, true if you want to embed the bundle in the apk.
-  bundleInDebug: true,
+  bundleInDebug: false,
 
   // Whether to bundle JS and assets in release mode
   bundleInRelease: true,

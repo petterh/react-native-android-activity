@@ -24,7 +24,7 @@ The starting point for this sample is a slightly tweaked standard React Native p
 
 ![Android Demo App](img/AndroidScreenShot.png)
 
-The `TextInput` box appears only in the Android version. Since both platforms use the same JavaScript, we also get to demonstrate how to handle platform-specific tweaks &ndash; look for `Platform.select` in [`index.android.js`](index.android.js).
+The `TextInput` box appears only in the Android version. Since both platforms use the same JavaScript, I took the opportunity to demonstrate how to handle platform-specific tweaks &ndash; look for `Platform.select` in [`index.android.js`](index.android.js).
 
 ## Getting started
 
@@ -39,22 +39,26 @@ The `TextInput` box appears only in the Android version. Since both platforms us
 * Run `yarn` to download dependencies
 * For Android development (using Windows, Mac or Linux), install [Android Studio](https://developer.android.com/studio/install.html) (follow instructions [on this page](https://facebook.github.io/react-native/docs/getting-started.html)).
 * For iOS development (Mac only), install [Xcode](https://developer.apple.com/xcode/).
-* By default, the debug build of the app loads the JS bundle from your dev box, so start a packager:
+* By default, the debug build of the app loads the JS bundle from your dev box, so start a bundler:
   ```cmd
   yarn start
   ```
-* Android
-  * Connect an Android device via USB, or use an emulator. [Don't forget to enable USB Debugging in Developer options](https://developer.android.com/studio/run/device).
-  * Open the app in Android Studio and run it.
-  * If this fails with the message "Could not get BatchedBridge, make sure your bundle is packaged correctly", your packager is likely not running.
-  * If it complains about connecting to the dev server, run `adb reverse tcp:8081 tcp:8081`
-  * If it crashes while opening the ReactNative controls, try to modify the following phone settings:
-  **Android Settings -> Apps -> Settings once again (the gear) to go to Configure Apps view -> Draw over other apps -> Allow React Native Android Activity Demo to draw over other apps**. (The demo app *should* ask for this automatically, though.)
-  * To embed the bundle in the apk (and not have to run the packager), do two changes:
-    * In `MainApplication`, make `getUseDeveloperSupport` return `false`.
-    * In `app/build.gradle`, set `bundleInDebug: true`.
-* iOS
-  * Open the xOS project in Xcode and run it.
+
+### Android
+
+* Connect an Android device via USB, or use an emulator. [Don't forget to enable USB Debugging in Developer options](https://developer.android.com/studio/run/device).
+* Open the app in Android Studio and run it.
+* If this fails with the message "Could not get BatchedBridge, make sure your bundle is packaged correctly", your packager is likely not running.
+* If it complains about connecting to the dev server, run `adb reverse tcp:8081 tcp:8081`
+* If it crashes while opening the ReactNative controls, try to modify the following phone settings:
+**Android Settings -> Apps -> Settings once again (the gear) to go to Configure Apps view -> Draw over other apps -> Allow React Native Android Activity Demo to draw over other apps**. (The demo app *should* ask for this automatically, though.)
+* To embed the bundle in the apk (and not have to run the packager), do two changes:
+  * In `MainApplication`, make `getUseDeveloperSupport` return `false`.
+  * In `app/build.gradle`, set `bundleInDebug: true`.
+
+### iOS
+
+* Open the xOS project in Xcode and run it. This automatically starts a bundler.
   
 <!-- markdownlint-enable MD031 -->
 
