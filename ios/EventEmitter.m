@@ -4,13 +4,16 @@
 #import "EventEmitter.h"
 
 @implementation EventEmitter
+{
+  BOOL hasObservers; // This is purely a performance thing
+}
 
 RCT_EXPORT_MODULE(EventEmitter)
 
 /*! @brief Required because we export constantsToExport */
 + (BOOL) requiresMainQueueSetup
 {
-  return NO;
+  return YES;
 }
 
 /*!
@@ -27,9 +30,21 @@ RCT_EXPORT_MODULE(EventEmitter)
   return @[@"MyEventValue"];
 }
 
+- (void) startObserving
+{
+  hasObservers = YES;
+}
+
+- (void) stopObserving
+{
+  hasObservers = NO;
+}
+
 - (void) emitEvent:(NSString *) message
 {
-  [self sendEventWithName:@"MyEventValue" body:message];
+  if (hasObservers) {
+    [self sendEventWithName:@"MyEventValue" body:message];
+  }
 }
 
 @end
