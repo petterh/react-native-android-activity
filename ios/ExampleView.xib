@@ -26,22 +26,25 @@
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kI1-4u-ihd">
                     <rect key="frame" x="145" y="229" width="113" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="23"/>
                     <state key="normal" title="Go back!"/>
                     <connections>
                         <action selector="handleGoBackButton:" destination="-1" eventType="touchUpInside" id="QqC-hP-Joo"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nkQ-up-Wof">
-                    <rect key="frame" x="115" y="387" width="173" height="30"/>
+                    <rect key="frame" x="77" y="385" width="251" height="40"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="23"/>
                     <state key="normal" title="Call JavaScript from Java"/>
                     <connections>
                         <action selector="handleCallJavaScript:" destination="-1" eventType="touchUpInside" id="cjQ-9G-96f"/>
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eLw-w6-Aob">
-                    <rect key="frame" x="145" y="307" width="113" height="30"/>
+                    <rect key="frame" x="133" y="309" width="148" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="23"/>
                     <state key="normal" title="Trigger event"/>
                     <connections>
                         <action selector="handleTriggerEvent:" destination="-1" eventType="touchUpInside" id="liu-1T-Xzw"/>

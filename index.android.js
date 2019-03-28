@@ -38,13 +38,14 @@ const exposedToJava = new ExposedToJava();
 BatchedBridge.registerCallableModule("JavaScriptVisibleToJava", exposedToJava);
 
 const activityStarter = NativeModules.ActivityStarter;
+const eventEmitterModule = NativeModules.EventEmitter;
 
 export default class ActivityDemoComponent extends Component {
   render() {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          Welcome to React Native!
+          Welcome to React Very Native!
         </Text>
         <Text style={styles.instructions}>
           <Text>To get started, edit </Text>
@@ -136,5 +137,5 @@ const styles = StyleSheet.create({
 
 AppRegistry.registerComponent('ActivityDemoComponent', () => ActivityDemoComponent);
 
-const eventEmitter = new NativeEventEmitter(activityStarter);
-eventEmitter.addListener(activityStarter.MyEventName, (params) => alert(params));
+const eventEmitter = new NativeEventEmitter(eventEmitterModule);
+eventEmitter.addListener(eventEmitterModule.MyEventName, (params) => alert(params));

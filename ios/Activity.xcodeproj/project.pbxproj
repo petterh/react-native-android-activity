@@ -40,6 +40,7 @@
 		E926366F224B88E100543B9F /* ExampleView.m in Sources */ = {isa = PBXBuildFile; fileRef = E926366E224B88E100543B9F /* ExampleView.m */; };
 		E980106A224A7479004F93F3 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9801069224A7479004F93F3 /* JavaScriptCore.framework */; };
 		E980106D224A8091004F93F3 /* ActivityStarterModule.m in Sources */ = {isa = PBXBuildFile; fileRef = E980106C224A8091004F93F3 /* ActivityStarterModule.m */; };
+		E9A145EE224CCCEB001AB682 /* EventEmitter.m in Sources */ = {isa = PBXBuildFile; fileRef = E9A145ED224CCCEB001AB682 /* EventEmitter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -335,6 +336,8 @@
 		E9801069224A7479004F93F3 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		E980106B224A7F93004F93F3 /* ActivityStarterModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ActivityStarterModule.h; sourceTree = "<group>"; };
 		E980106C224A8091004F93F3 /* ActivityStarterModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ActivityStarterModule.m; sourceTree = "<group>"; };
+		E9A145EC224CCC84001AB682 /* EventEmitter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventEmitter.h; sourceTree = "<group>"; };
+		E9A145ED224CCCEB001AB682 /* EventEmitter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventEmitter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -480,6 +483,8 @@
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
 				13B07FB71A68108700A75B9A /* main.m */,
 				E980106B224A7F93004F93F3 /* ActivityStarterModule.h */,
+				E9A145EC224CCC84001AB682 /* EventEmitter.h */,
+				E9A145ED224CCCEB001AB682 /* EventEmitter.m */,
 				E980106C224A8091004F93F3 /* ActivityStarterModule.m */,
 				E9263648224B866300543B9F /* ExampleView.xib */,
 				E926366D224B88A900543B9F /* ExampleView.h */,
@@ -1085,6 +1090,7 @@
 				E926366F224B88E100543B9F /* ExampleView.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				E9A145EE224CCCEB001AB682 /* EventEmitter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

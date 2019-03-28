@@ -12,6 +12,7 @@
 #import <React/RCTBridgeModule.h>
 
 @interface ActivityStarterModule : NSObject <RCTBridgeModule>
+
 @end
 
 #endif /* ActivityStarterModule_h */

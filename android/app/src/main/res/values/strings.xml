@@ -7,4 +7,5 @@
     <string name="reverse_text_activity_title">Reversed text!</string>
     <string name="menuitem_reverse_text_label">Reverse text</string>
     <string name="call_javascript_from_java">Call JavaScript from Java</string>
+    <string name="set_extra_message">Set extra message</string>
 </resources>

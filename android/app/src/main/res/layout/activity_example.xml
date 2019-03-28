@@ -40,11 +40,11 @@
             android:text="@string/trigger_event"
             />
         <Button
-            android:id="@+id/call_javascript_button"
+            android:id="@+id/set_extra_message"
             android:layout_gravity="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/call_javascript_from_java"
+            android:text="@string/set_extra_message"
             />
     </LinearLayout>
 
