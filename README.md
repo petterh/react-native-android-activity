@@ -281,6 +281,7 @@ The iOS Objective-C classes are parallel to the Android Java classes. There are 
 
 * Modules are picked up automatically.
 * There is no react application context; instead there is the react native bridge, which is initialized in the [`AppDelegate`](ios/Activity/AppDelegate.m) class.
+* Events are done somewhat differently. In Android we can just grab a `DeviceEventManagerModule.RCTDeviceEventEmitter` and fire away; in iOS it is necessary to subclass `RCTEventEmitter`.
 
 Here is a sample of an Objective-C class implementation with methods callable from JavaScript:
 
