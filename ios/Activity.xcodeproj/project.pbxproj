@@ -337,7 +337,7 @@
 		E980106B224A7F93004F93F3 /* ActivityStarterModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ActivityStarterModule.h; sourceTree = "<group>"; };
 		E980106C224A8091004F93F3 /* ActivityStarterModule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ActivityStarterModule.m; sourceTree = "<group>"; };
 		E9A145EC224CCC84001AB682 /* EventEmitter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventEmitter.h; sourceTree = "<group>"; };
-		E9A145ED224CCCEB001AB682 /* EventEmitter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EventEmitter.m; sourceTree = "<group>"; };
+		E9A145ED224CCCEB001AB682 /* EventEmitter.m */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.c.objc; path = EventEmitter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
