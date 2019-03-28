@@ -1,10 +1,4 @@
-//
-//  ExampleViewController.m
-//  Activity
-//
-//  Created by Petter Hesselberg on 27/03/2019.
-//  Copyright © 2019 Facebook. All rights reserved.
-//
+// A view controller that we start from JavaScript.
 
 #import <Foundation/Foundation.h>
 #import <React/RCTBridge.h>
@@ -16,21 +10,23 @@
 
 @implementation ExampleView
 
+- (AppDelegate *) appDelegate
+{
+  return (AppDelegate *) [UIApplication sharedApplication].delegate;
+}
+
 - (IBAction)handleGoBackButton:(id)sender {
-  AppDelegate *appDelegate = (AppDelegate *) [UIApplication sharedApplication].delegate;
-  [appDelegate navigateBack];
+  [self.appDelegate navigateBack];
 }
 
 - (IBAction)handleTriggerEvent:(id)sender {
-  AppDelegate *appDelegate = (AppDelegate *) [UIApplication sharedApplication].delegate;
-  RCTBridge *reactBridge = [appDelegate reactBridge];
+  RCTBridge *reactBridge = [self.appDelegate reactBridge];
   EventEmitter *eventEmitter = [reactBridge moduleForName:@"EventEmitter"];
-  [eventEmitter emitEvent:@"Hello from iOS!"];
+  [eventEmitter emitEvent:@"Hello from iOS event emitter!"];
 }
 
 - (IBAction)handleCallJavaScript:(id)sender {
-  AppDelegate *appDelegate = (AppDelegate *) [UIApplication sharedApplication].delegate;
-  [appDelegate callJavaScript];
+  [self.appDelegate callJavaScript];
 }
 
 @end

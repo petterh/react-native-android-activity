@@ -1,10 +1,4 @@
-//
-//  EventEmitter.m
-//  Activity
-//
-//  Created by Petter Hesselberg on 28/03/2019.
-//  Copyright © 2019 Facebook. All rights reserved.
-//
+// React Native module that lets Objective-C send events to JavaScript.
 
 #import <Foundation/Foundation.h>
 #import "EventEmitter.h"
@@ -19,6 +13,10 @@ RCT_EXPORT_MODULE(EventEmitter)
   return NO;
 }
 
+/*!
+ * Allows us to write 'EventEmitter.MyEventName' in JavaScript and get 'MyEventValue.
+ * Hardcoding 'MyEventValue' in JavaScript would have the same effect.
+ */
 - (NSDictionary<NSString *, id> *) constantsToExport
 {
   return @{@"MyEventName": @"MyEventValue"};
