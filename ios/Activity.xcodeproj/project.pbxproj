@@ -18,15 +18,15 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB11A68108700A75B9A /* LaunchScreen.xib */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
-		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
-		E9263649224B866300543B9F /* ExampleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9263648224B866300543B9F /* ExampleView.xib */; };
-		E926366F224B88E100543B9F /* ExampleView.m in Sources */ = {isa = PBXBuildFile; fileRef = E926366E224B88E100543B9F /* ExampleView.m */; };
 		E980106A224A7479004F93F3 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E9801069224A7479004F93F3 /* JavaScriptCore.framework */; };
-		E980106D224A8091004F93F3 /* ActivityStarterModule.m in Sources */ = {isa = PBXBuildFile; fileRef = E980106C224A8091004F93F3 /* ActivityStarterModule.m */; };
-		E9A145EE224CCCEB001AB682 /* EventEmitter.m in Sources */ = {isa = PBXBuildFile; fileRef = E9A145ED224CCCEB001AB682 /* EventEmitter.m */; };
+		E9A14664224E2702001AB682 /* EventEmitter.m in Sources */ = {isa = PBXBuildFile; fileRef = E9A1465C224E2701001AB682 /* EventEmitter.m */; };
+		E9A14665224E2702001AB682 /* ExampleView.m in Sources */ = {isa = PBXBuildFile; fileRef = E9A1465E224E2702001AB682 /* ExampleView.m */; };
+		E9A14666224E2702001AB682 /* ActivityStarterModule.m in Sources */ = {isa = PBXBuildFile; fileRef = E9A14661224E2702001AB682 /* ActivityStarterModule.m */; };
+		E9A14667224E2702001AB682 /* ExampleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E9A14662224E2702001AB682 /* ExampleView.xib */; };
+		E9A14668224E2702001AB682 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E9A14663224E2702001AB682 /* main.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -292,19 +292,19 @@
 		13B07FB21A68108700A75B9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Activity/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Activity/Info.plist; sourceTree = "<group>"; };
-		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Activity/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
-		E9263648224B866300543B9F /* ExampleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExampleView.xib; sourceTree = "<group>"; };
-		E926366D224B88A900543B9F /* ExampleView.h */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.c.h; path = ExampleView.h; sourceTree = "<group>"; };
-		E926366E224B88E100543B9F /* ExampleView.m */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.c.objc; path = ExampleView.m; sourceTree = "<group>"; };
 		E9801069224A7479004F93F3 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		E980106B224A7F93004F93F3 /* ActivityStarterModule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ActivityStarterModule.h; sourceTree = "<group>"; };
-		E980106C224A8091004F93F3 /* ActivityStarterModule.m */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityStarterModule.m; sourceTree = "<group>"; };
-		E9A145EC224CCC84001AB682 /* EventEmitter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventEmitter.h; sourceTree = "<group>"; };
-		E9A145ED224CCCEB001AB682 /* EventEmitter.m */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.c.objc; path = EventEmitter.m; sourceTree = "<group>"; };
+		E9A1465C224E2701001AB682 /* EventEmitter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EventEmitter.m; path = Activity/EventEmitter.m; sourceTree = "<group>"; };
+		E9A1465D224E2702001AB682 /* EventEmitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EventEmitter.h; path = Activity/EventEmitter.h; sourceTree = "<group>"; };
+		E9A1465E224E2702001AB682 /* ExampleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExampleView.m; path = Activity/ExampleView.m; sourceTree = "<group>"; };
+		E9A1465F224E2702001AB682 /* ExampleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExampleView.h; path = Activity/ExampleView.h; sourceTree = "<group>"; };
+		E9A14660224E2702001AB682 /* ActivityStarterModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ActivityStarterModule.h; path = Activity/ActivityStarterModule.h; sourceTree = "<group>"; };
+		E9A14661224E2702001AB682 /* ActivityStarterModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ActivityStarterModule.m; path = Activity/ActivityStarterModule.m; sourceTree = "<group>"; };
+		E9A14662224E2702001AB682 /* ExampleView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ExampleView.xib; path = Activity/ExampleView.xib; sourceTree = "<group>"; };
+		E9A14663224E2702001AB682 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Activity/main.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -395,20 +395,20 @@
 		13B07FAE1A68108700A75B9A /* Activity */ = {
 			isa = PBXGroup;
 			children = (
+				E9A14660224E2702001AB682 /* ActivityStarterModule.h */,
+				E9A14661224E2702001AB682 /* ActivityStarterModule.m */,
+				E9A1465D224E2702001AB682 /* EventEmitter.h */,
+				E9A1465C224E2701001AB682 /* EventEmitter.m */,
+				E9A1465F224E2702001AB682 /* ExampleView.h */,
+				E9A1465E224E2702001AB682 /* ExampleView.m */,
+				E9A14662224E2702001AB682 /* ExampleView.xib */,
+				E9A14663224E2702001AB682 /* main.m */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.m */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
-				13B07FB71A68108700A75B9A /* main.m */,
-				E980106B224A7F93004F93F3 /* ActivityStarterModule.h */,
-				E9A145EC224CCC84001AB682 /* EventEmitter.h */,
-				E9A145ED224CCCEB001AB682 /* EventEmitter.m */,
-				E980106C224A8091004F93F3 /* ActivityStarterModule.m */,
-				E9263648224B866300543B9F /* ExampleView.xib */,
-				E926366D224B88A900543B9F /* ExampleView.h */,
-				E926366E224B88E100543B9F /* ExampleView.m */,
 			);
 			name = Activity;
 			sourceTree = "<group>";
@@ -858,7 +858,7 @@
 			files = (
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
-				E9263649224B866300543B9F /* ExampleView.xib in Resources */,
+				E9A14667224E2702001AB682 /* ExampleView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -886,11 +886,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E980106D224A8091004F93F3 /* ActivityStarterModule.m in Sources */,
-				E926366F224B88E100543B9F /* ExampleView.m in Sources */,
+				E9A14668224E2702001AB682 /* main.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
-				13B07FC11A68108700A75B9A /* main.m in Sources */,
-				E9A145EE224CCCEB001AB682 /* EventEmitter.m in Sources */,
+				E9A14664224E2702001AB682 /* EventEmitter.m in Sources */,
+				E9A14666224E2702001AB682 /* ActivityStarterModule.m in Sources */,
+				E9A14665224E2702001AB682 /* ExampleView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
