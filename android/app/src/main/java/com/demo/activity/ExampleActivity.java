@@ -66,12 +66,20 @@ public class ExampleActivity extends ReactActivity {
                     // Note: Here we call 'setMessage', which does not show UI. That means it is okay
                     // to call it from an activity that doesn't forward lifecycle events to React Native.
                     catalystInstance.callFunction("JavaScriptVisibleToJava", "setMessage", params);
-
-                    // Note: Here we call 'alert', which does show UI. That means it does nothing if
-                    // called from an activity that doesn't forward lifecycle events to React Native.
-                    // See comments on EventEmitterModule.emitEvent above.
-                    catalystInstance.callFunction("JavaScriptVisibleToJava", "alert", params);
                     Toast.makeText(ExampleActivity.this, "Extra message was changed", Toast.LENGTH_SHORT).show();
+
+                    try {
+                        // Need new params, as the old has been consumed and would cause an exception
+                        WritableNativeArray alertParams = new WritableNativeArray();
+                        params.pushString("Hello, alert! From iOS!");
+
+                        // Note: Here we call 'alert', which does show UI. That means it does nothing if
+                        // called from an activity that doesn't forward lifecycle events to React Native.
+                        // See comments on EventEmitterModule.emitEvent above.
+                        catalystInstance.callFunction("JavaScriptVisibleToJava", "alert", alertParams);
+                    } catch (Exception e) {
+                        Toast.makeText(ExampleActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         });
