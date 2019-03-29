@@ -10,14 +10,16 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * Exposes {@link ActivityStarterModule} to JavaScript.
- * One {@link ReactPackage} can expose multiple {@link NativeModule}s.
+ * Exposes {@link ActivityStarterModule} and {@link EventEmitterModule}  to JavaScript.
+ * One {@link ReactPackage} can expose any number of {@link NativeModule}s.
  */
 class ActivityStarterReactPackage implements ReactPackage {
+
     @Override
     public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
         List<NativeModule> modules = new ArrayList<>();
         modules.add(new ActivityStarterModule(reactContext));
+        modules.add(new EventEmitterModule(reactContext));
         return modules;
     }
 
