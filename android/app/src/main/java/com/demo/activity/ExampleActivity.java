@@ -70,13 +70,13 @@ public class ExampleActivity extends ReactActivity {
 
                     try {
                         // Need new params, as the old has been consumed and would cause an exception
-                        WritableNativeArray alertParams = new WritableNativeArray();
-                        params.pushString("Hello, alert! From iOS!");
+                        params = new WritableNativeArray();
+                        params.pushString("Hello, alert! From native side!");
 
                         // Note: Here we call 'alert', which does show UI. That means it does nothing if
                         // called from an activity that doesn't forward lifecycle events to React Native.
                         // See comments on EventEmitterModule.emitEvent above.
-                        catalystInstance.callFunction("JavaScriptVisibleToJava", "alert", alertParams);
+                        catalystInstance.callFunction("JavaScriptVisibleToJava", "alert", params);
                     } catch (Exception e) {
                         Toast.makeText(ExampleActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
                     }
