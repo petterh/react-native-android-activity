@@ -10,58 +10,58 @@
 
 @implementation AppDelegate
 {
-  UINavigationController *navigationController;
+    UINavigationController *navigationController;
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  self.reactBridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:launchOptions];
+    self.reactBridge = [[RCTBridge alloc] initWithDelegate:self launchOptions:launchOptions];
 
-  RCTDevMenuItem *devMenuItem = [RCTDevMenuItem buttonItemWithTitle:@"Custom menu item"
-                                                            handler:^{
-                                                              NSLog(@"Custom menu item clicked!");
-                                                            }];
-  [self.reactBridge.devMenu addItem:devMenuItem];
+    RCTDevMenuItem *devMenuItem = [RCTDevMenuItem buttonItemWithTitle:@"Custom menu item"
+                                                              handler:^{
+                                                                  NSLog(@"Custom menu item clicked!");
+                                                              }];
+    [self.reactBridge.devMenu addItem:devMenuItem];
 
-  RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:self.reactBridge
-                                                   moduleName:@"ActivityDemoComponent"
-                                            initialProperties:nil];
-  rootView.backgroundColor = [[UIColor alloc] initWithRed:1.0f green:1.0f blue:1.0f alpha:1];
+    RCTRootView *rootView = [[RCTRootView alloc] initWithBridge:self.reactBridge
+                                                     moduleName:@"ActivityDemoComponent"
+                                              initialProperties:nil];
+    rootView.backgroundColor = [[UIColor alloc] initWithRed:1.0f green:1.0f blue:1.0f alpha:1];
 
-  UIViewController *rootViewController = [UIViewController new];
-  rootViewController.view = rootView;
-  navigationController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
+    UIViewController *rootViewController = [UIViewController new];
+    rootViewController.view = rootView;
+    navigationController = [[UINavigationController alloc] initWithRootViewController:rootViewController];
 
-  self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-  self.window.rootViewController = navigationController;
-  [self.window makeKeyAndVisible];
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.rootViewController = navigationController;
+    [self.window makeKeyAndVisible];
 
-  return YES;
+    return YES;
 }
 
 - (void) navigateToExampleView
 {
-  ExampleView *viewController = [[ExampleView alloc] initWithNibName:@"ExampleView" bundle:nil];
-  [navigationController pushViewController:viewController animated:YES];
+    ExampleView *viewController = [[ExampleView alloc] initWithNibName:@"ExampleView" bundle:nil];
+    [navigationController pushViewController:viewController animated:YES];
 }
 
 - (void) navigateBack
 {
-  [navigationController popViewControllerAnimated:YES];
+    [navigationController popViewControllerAnimated:YES];
 }
 
 - (void) callJavaScript
 {
-  [self.reactBridge enqueueJSCall:@"JavaScriptVisibleToJava"
-                           method:@"alert"
-                             args:@[@"Hello, JavaScript!"]
-                       completion:nil];
+    [self.reactBridge enqueueJSCall:@"JavaScriptVisibleToJava"
+                             method:@"alert"
+                               args:@[@"Hello, JavaScript!"]
+                         completion:nil];
 }
 
 - (NSURL *)sourceURLForBridge:(RCTBridge *)bridge {
-  NSURL *jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index.android"
-                                                                         fallbackResource:nil];
-  return jsCodeLocation;
+    NSURL *jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index.android"
+                                                                           fallbackResource:nil];
+    return jsCodeLocation;
 }
 
 @end

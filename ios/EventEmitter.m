@@ -5,7 +5,7 @@
 
 @implementation EventEmitter
 {
-  BOOL hasObservers; // This is purely a performance thing
+    BOOL hasObservers; // This is purely a performance thing
 }
 
 RCT_EXPORT_MODULE(EventEmitter)
@@ -13,7 +13,7 @@ RCT_EXPORT_MODULE(EventEmitter)
 /*! @brief Required because we export constantsToExport */
 + (BOOL) requiresMainQueueSetup
 {
-  return YES;
+    return YES;
 }
 
 /*!
@@ -22,29 +22,29 @@ RCT_EXPORT_MODULE(EventEmitter)
  */
 - (NSDictionary<NSString *, id> *) constantsToExport
 {
-  return @{@"MyEventName": @"MyEventValue"};
+    return @{@"MyEventName": @"MyEventValue"};
 }
 
 - (NSArray <NSString *> *) supportedEvents
 {
-  return @[@"MyEventValue"];
+    return @[@"MyEventValue"];
 }
 
 - (void) startObserving
 {
-  hasObservers = YES;
+    hasObservers = YES;
 }
 
 - (void) stopObserving
 {
-  hasObservers = NO;
+    hasObservers = NO;
 }
 
 - (void) emitEvent:(NSString *) message
 {
-  if (hasObservers) {
-    [self sendEventWithName:@"MyEventValue" body:message];
-  }
+    if (hasObservers) {
+        [self sendEventWithName:@"MyEventValue" body:message];
+    }
 }
 
 @end
