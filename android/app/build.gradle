@@ -92,8 +92,8 @@ android {
         applicationId "com.demo.activity"
         minSdkVersion 23
         targetSdkVersion 28
-        versionCode 3
-        versionName "2.1"
+        versionCode 4
+        versionName "2.2"
         ndk {
             abiFilters "armeabi-v7a", "x86"
         }

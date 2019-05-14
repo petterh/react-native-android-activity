@@ -16,7 +16,7 @@ import com.facebook.react.devsupport.interfaces.DevSupportManager;
 /**
  * The main activity, which hosts the React Native view registered in {@code index.android.js}.
  */
-public class MainActivity extends ReactActivity {
+public final class MainActivity extends ReactActivity {
 
     private static final String CUSTOM_DEV_OPTION_MESSAGE = "Hello from custom dev option!";
 

@@ -16,12 +16,10 @@ import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.WritableNativeArray;
 
-import javax.annotation.Nonnull;
-
 /**
  * Expose Java to JavaScript. Methods annotated with {@link ReactMethod} are exposed.
  */
-class ActivityStarterModule extends ReactContextBaseJavaModule {
+final class ActivityStarterModule extends ReactContextBaseJavaModule {
 
     ActivityStarterModule(ReactApplicationContext reactContext) {
         super(reactContext);
@@ -46,7 +44,7 @@ class ActivityStarterModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    void dialNumber(@Nonnull String number) {
+    void dialNumber(@NonNull String number) {
         Activity activity = getCurrentActivity();
         if (activity != null) {
             Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + number));

@@ -13,7 +13,7 @@ import java.util.List;
  * Exposes {@link ActivityStarterModule} and {@link EventEmitterModule}  to JavaScript.
  * One {@link ReactPackage} can expose any number of {@link NativeModule}s.
  */
-class ActivityStarterReactPackage implements ReactPackage {
+final class ActivityStarterReactPackage implements ReactPackage {
 
     @Override
     public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {

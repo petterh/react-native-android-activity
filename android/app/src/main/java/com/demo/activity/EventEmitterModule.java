@@ -14,7 +14,7 @@ import java.util.Map;
 /**
  * Supports sending events to JavaScript.
  */
-class EventEmitterModule extends ReactContextBaseJavaModule {
+final class EventEmitterModule extends ReactContextBaseJavaModule {
 
     private static DeviceEventManagerModule.RCTDeviceEventEmitter eventEmitter = null;
 
@@ -37,6 +37,7 @@ class EventEmitterModule extends ReactContextBaseJavaModule {
         return "EventEmitter";
     }
 
+    @SuppressWarnings("ConstantConditions")
     @Nullable
     @Override
     public Map<String, Object> getConstants() {
@@ -46,7 +47,7 @@ class EventEmitterModule extends ReactContextBaseJavaModule {
     }
 
     /**
-     * To pass an object instead of a simple string, create a {@link WritableNativeMap} and populate it.
+     * To pass a JavaScript object instead of a simple string, create a {@link WritableNativeMap} and populate it.
      */
     static void emitEvent(@NonNull String message) {
         eventEmitter.emit("MyEventValue", message);
