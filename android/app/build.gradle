@@ -16,6 +16,7 @@ import com.android.build.OutputFile
  */
 
 def bundleInDebug = hasProperty("bundleInDebug") && Boolean.valueOf(property("bundleInDebug"))
+def useDevSupport = !bundleInDebug
 
 project.ext.react = [
         // The name of the generated asset file containing your JS bundle
@@ -26,10 +27,11 @@ project.ext.react = [
 
         // Whether to bundle JS and assets in debug mode. Set this to false if you want to load
         // JavaScript from a bundler, true if you want to embed the bundle in the apk.
+        // Do not change it here; change the property value in gradle.properties instead.
         bundleInDebug  : bundleInDebug,
 
         // Whether to bundle JS and assets in release mode
-        bundleInRelease: false,
+        bundleInRelease: true,
 
         // Whether to bundle JS and assets in another build variant (if configured).
         // See http://tools.android.com/tech-docs/new-build-system/user-guide#TOC-Build-Variants
@@ -71,8 +73,6 @@ project.ext.react = [
 
 apply from: "../../node_modules/react-native/react.gradle"
 
-println("bundle in debug: " + project.ext.react.bundleInDebug);
-
 /**
  * Set this to true to create two separate APKs instead of one:
  *   - An APK that only works on ARM devices
@@ -97,7 +97,7 @@ android {
         compileSdkVersion 28
         targetSdkVersion 28
         versionCode 4
-        versionName "2.2"
+        versionName "2.3"
         ndk {
             abiFilters 'armeabi-v7a', 'x86'
         }
@@ -114,7 +114,7 @@ android {
 
     buildTypes {
         debug {
-            buildConfigField 'boolean', 'USE_DEVELOPER_SUPPORT', "$project.ext.react.bundleInDebug"
+            buildConfigField 'boolean', 'USE_DEVELOPER_SUPPORT', "$useDevSupport"
         }
         release {
             minifyEnabled enableProguardInReleaseBuilds
@@ -136,12 +136,25 @@ android {
             }
         }
     }
+
+    sourceSets {
+        main {
+            debug {
+                if (bundleInDebug) {
+                    assets.srcDirs += "$buildDir/intermediates/assets/debug"
+                }
+            }
+            release {
+                assets.srcDirs += "$buildDir/intermediates/assets/release"
+            }
+        }
+    }
 }
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation 'com.android.support:appcompat-v7:28.0.0'
-    implementation('com.facebook.react:react-native:0.58.6') {
+    implementation('com.facebook.react:react-native:0.59.9') {
         exclude group: 'com.android.support'
     }
 }

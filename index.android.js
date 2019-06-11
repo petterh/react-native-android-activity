@@ -51,7 +51,7 @@ export default class ActivityDemoComponent extends Component {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          Welcome to React Native!
+          Welcome to React Native ({this.props.buildType})!
         </Text>
         <Text style={styles.instructions}>
           <Text>To get started, edit </Text>
