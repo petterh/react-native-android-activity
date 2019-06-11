@@ -94,7 +94,7 @@ android {
     compileSdkVersion 28
 
     defaultConfig {
-        applicationId "com.demo.activity"
+        applicationId 'com.demo.activity'
         minSdkVersion 23
         compileSdkVersion 28
         targetSdkVersion 28
@@ -120,7 +120,7 @@ android {
         }
         release {
             minifyEnabled enableProguardInReleaseBuilds
-            proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             buildConfigField 'boolean', 'USE_DEVELOPER_SUPPORT', 'false'
         }
     }
@@ -155,7 +155,7 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support:appcompat-v7:28.0.0'
     implementation('com.facebook.react:react-native:0.59.9') {
         exclude group: 'com.android.support'
