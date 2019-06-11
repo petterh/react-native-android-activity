@@ -13,12 +13,15 @@ import com.facebook.soloader.SoLoader;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * Base class for maintaining global application state -- in this case, the {@link ReactNativeHost}.
+ */
 public final class MainApplication extends Application implements ReactApplication {
 
     private final ReactNativeHost mReactNativeHost = new ReactNativeHost(this) {
         @Override
         public boolean getUseDeveloperSupport() {
-            return BuildConfig.DEBUG;
+            return BuildConfig.USE_DEVELOPER_SUPPORT;
         }
 
         @Override
@@ -30,12 +33,21 @@ public final class MainApplication extends Application implements ReactApplicati
         }
     };
 
+    /**
+     * Get the {@link ReactNativeHost} for this app.
+     */
     @Override
     @NonNull
     public ReactNativeHost getReactNativeHost() {
         return mReactNativeHost;
     }
 
+    /**
+     * Called when the application is starting, before any activity, service,
+     * or receiver objects (excluding content providers) have been created.
+     *
+     * <p>This implementation loads the React Native JNI libraries.</p>
+     */
     @Override
     @CallSuper
     public void onCreate() {

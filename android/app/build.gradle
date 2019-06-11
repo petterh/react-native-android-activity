@@ -14,67 +14,72 @@ import com.android.build.OutputFile
  * as expected, because the following workaround doesn't apply in that case:
  * https://github.com/facebook/react-native/pull/21408
  */
+
+def bundleInDebug = hasProperty("bundleInDebug") && Boolean.valueOf(property("bundleInDebug"))
+def useDevSupport = !bundleInDebug
+
 project.ext.react = [
-  // The name of the generated asset file containing your JS bundle
-  // bundleAssetName: "index.android.bundle",
+        // The name of the generated asset file containing your JS bundle
+        // bundleAssetName: "index.android.bundle",
 
-  // The entry file for bundle generation
-  // entryFile: "index.android.js",
+        // The entry file for bundle generation
+        // entryFile: "index.android.js",
 
-  // Whether to bundle JS and assets in debug mode. Set this to false if you want to load
-  // JavaScript from a bundler, true if you want to embed the bundle in the apk.
-  bundleInDebug: false,
+        // Whether to bundle JS and assets in debug mode. Set this to false if you want to load
+        // JavaScript from a bundler, true if you want to embed the bundle in the apk.
+        // Do not change it here; change the property value in gradle.properties instead.
+        bundleInDebug  : bundleInDebug,
 
-  // Whether to bundle JS and assets in release mode
-  bundleInRelease: true,
+        // Whether to bundle JS and assets in release mode
+        bundleInRelease: true,
 
-  // Whether to bundle JS and assets in another build variant (if configured).
-  // See http://tools.android.com/tech-docs/new-build-system/user-guide#TOC-Build-Variants
-  // The configuration property can be in the following formats
-  //         'bundleIn${productFlavor}${buildType}'
-  //         'bundleIn${buildType}'
-  // bundleInFreeDebug: true,
-  // bundleInPaidRelease: true,
-  // bundleInBeta: true,
+        // Whether to bundle JS and assets in another build variant (if configured).
+        // See http://tools.android.com/tech-docs/new-build-system/user-guide#TOC-Build-Variants
+        // The configuration property can be in the following formats
+        //         'bundleIn${productFlavor}${buildType}'
+        //         'bundleIn${buildType}'
+        // bundleInBeta: true,
 
-  // The root of your project, i.e. where "package.json" lives
-  // root: "../../",
+        // The root of your project, i.e. where "package.json" lives
+        // root: "../../",
 
-  // Where to put the JS bundle asset in debug mode
-  // jsBundleDirDebug: "$buildDir/intermediates/assets/debug",
+        // Where to put the JS bundle asset in debug mode
+        // jsBundleDirDebug: "$buildDir/intermediates/assets/debug",
 
-  // Where to put the JS bundle asset in release mode
-  // jsBundleDirRelease: "$buildDir/intermediates/assets/release",
+        // Where to put the JS bundle asset in release mode
+        // jsBundleDirRelease: "$buildDir/intermediates/assets/release",
 
-  // Where to put drawable resources / React Native assets, e.g. the ones you use via
-  // require('./image.png')), in debug mode
-  // resourcesDirDebug: "$buildDir/intermediates/res/merged/debug",
+        // Where to put drawable resources / React Native assets, e.g. the ones you use via
+        // require('./image.png')), in debug mode
+        // resourcesDirDebug: "$buildDir/intermediates/res/merged/debug",
 
-  // Where to put drawable resources / React Native assets, e.g. the ones you use via
-  // require('./image.png')), in release mode
-  // resourcesDirRelease: "$buildDir/intermediates/res/merged/release",
+        // Where to put drawable resources / React Native assets, e.g. the ones you use via
+        // require('./image.png')), in release mode
+        // resourcesDirRelease: "$buildDir/intermediates/res/merged/release",
 
-  // By default the gradle tasks are skipped if none of the JS files or assets change; this means
-  // that we don't look at files in android/ or ios/ to determine whether the tasks are up to
-  // date; if you have any other folders that you want to ignore for performance reasons (gradle
-  // indexes the entire tree), add them here. Alternatively, if you have JS files in android/
-  // for example, you might want to remove it from here.
-  // inputExcludes: ["android/**", "ios/**"],
+        // By default the gradle tasks are skipped if none of the JS files or assets change; this means
+        // that we don't look at files in android/ or ios/ to determine whether the tasks are up to
+        // date; if you have any other folders that you want to ignore for performance reasons (gradle
+        // indexes the entire tree), add them here. Alternatively, if you have JS files in android/
+        // for example, you might want to remove it from here.
+        // inputExcludes: ["android/**", "ios/**"],
 
-  // Override which node gets called and with what additional arguments
-  // nodeExecutableAndArgs: ["node"],
+        // Override which node gets called and with what additional arguments
+        // nodeExecutableAndArgs: ["node"],
 
-  // Supply additional arguments to the packager
-  // extraPackagerArgs: []
+        // Supply additional arguments to the packager
+        // extraPackagerArgs: []
 ]
 
 apply from: "../../node_modules/react-native/react.gradle"
 
 /**
- * Set this to true to create two separate APKs instead of one:
- *   - An APK that only works on ARM devices
- *   - An APK that only works on x86 devices
- * The advantage is the size of the APK is reduced by about 4MB.
+ * Set this to true to create separate APKs instead of one:
+ *   - An APK that only works on 32-bit ARM devices
+ *   - An APK that only works on 64-bit ARM devices
+ *   - An APK that only works on 32-bit x86 devices
+ *   - An APK that only works on 64-bit x86 devices
+ * This reduces the size of the APK.
  * Upload all the APKs to the Play Store and people will download
  * the correct one based on the CPU architecture of their device.
  */
@@ -89,13 +94,14 @@ android {
     compileSdkVersion 28
 
     defaultConfig {
-        applicationId "com.demo.activity"
+        applicationId 'com.demo.activity'
         minSdkVersion 23
+        compileSdkVersion 28
         targetSdkVersion 28
-        versionCode 4
-        versionName "2.2"
+        versionCode 5
+        versionName "5.0"
         ndk {
-            abiFilters 'armeabi-v7a', 'x86'
+            abiFilters 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
         }
     }
 
@@ -104,14 +110,18 @@ android {
             reset()
             enable enableSeparateBuildPerCPUArchitecture
             universalApk false  // If true, also generate a universal APK
-            include 'armeabi-v7a', 'x86'
+            include 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64'
         }
     }
 
     buildTypes {
+        debug {
+            buildConfigField 'boolean', 'USE_DEVELOPER_SUPPORT', "$useDevSupport"
+        }
         release {
             minifyEnabled enableProguardInReleaseBuilds
-            proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField 'boolean', 'USE_DEVELOPER_SUPPORT', 'false'
         }
     }
 
@@ -120,7 +130,7 @@ android {
         variant.outputs.each { output ->
             // For each separate APK per architecture, set a unique version code as described here:
             // http://tools.android.com/tech-docs/new-build-system/user-guide/apk-splits
-            def versionCodes = ["armeabi-v7a": 1, "x86": 2]
+            def versionCodes = ['armeabi-v7a': 1, 'arm64-v8a': 2, 'x86': 3, 'x86_64': 4]
             def abi = output.getFilter(OutputFile.ABI)
             if (abi != null) {  // null for the universal-debug, universal-release variants
                 output.versionCodeOverride =
@@ -128,12 +138,26 @@ android {
             }
         }
     }
+
+    // This is necessary to include the JavaScript bundle in the APK:
+    sourceSets {
+        main {
+            debug {
+                if (bundleInDebug) {
+                    assets.srcDirs += "$buildDir/intermediates/assets/debug"
+                }
+            }
+            release {
+                assets.srcDirs += "$buildDir/intermediates/assets/release"
+            }
+        }
+    }
 }
 
 dependencies {
-    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support:appcompat-v7:28.0.0'
-    implementation('com.facebook.react:react-native:0.58.6') {
+    implementation('com.facebook.react:react-native:0.59.9') {
         exclude group: 'com.android.support'
     }
 }

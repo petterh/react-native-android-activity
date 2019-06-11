@@ -8,6 +8,7 @@ import android.support.v7.app.AlertDialog;
 import android.widget.Toast;
 
 import com.facebook.react.ReactActivity;
+import com.facebook.react.ReactActivityDelegate;
 import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.devsupport.interfaces.DevOptionHandler;
@@ -23,16 +24,33 @@ public final class MainActivity extends ReactActivity {
     /**
      * Returns the name of the main component registered from JavaScript.
      * This is used to schedule rendering of the component.
+     * Because this class overrides {@link #createReactActivityDelegate()}, we don't really need
+     * to override this.
      */
     @Override
-    @Nullable
     protected String getMainComponentName() {
         return "ActivityDemoComponent";
     }
 
     /**
+     * We override to provide launch options that we can read in JavaScript (see buildType).
+     */
+    @Override
+    protected ReactActivityDelegate createReactActivityDelegate() {
+        return new ReactActivityDelegate(this, getMainComponentName()) {
+            @Override
+            protected Bundle getLaunchOptions() {
+                Bundle launchOptions = new Bundle();
+                launchOptions.putString("buildType", BuildConfig.BUILD_TYPE);
+                return launchOptions;
+            }
+        };
+    }
+
+    /**
      * Demonstrates how to add a custom option to the dev menu.
      * https://stackoverflow.com/a/44882371/3968276
+     * This only works from the debug build with dev options enabled.
      */
     @Override
     @CallSuper
