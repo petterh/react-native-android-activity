@@ -33,7 +33,7 @@ public final class MainActivity extends ReactActivity {
     }
 
     /**
-     * Override to provide launch options.
+     * We override to provide launch options that we can read in JavaScript (see buildType).
      */
     @Override
     protected ReactActivityDelegate createReactActivityDelegate() {
