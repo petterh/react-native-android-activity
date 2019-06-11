@@ -17,7 +17,7 @@ import com.facebook.react.bridge.WritableNativeArray;
  * Activity to start from React Native JavaScript, triggered via
  * {@link ActivityStarterModule#navigateToExample()}.
  */
-public class ExampleActivity extends ReactActivity {
+public final class ExampleActivity extends ReactActivity {
 
     @Override
     @CallSuper
