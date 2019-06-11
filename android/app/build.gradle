@@ -99,7 +99,7 @@ android {
         versionCode 4
         versionName "2.2"
         ndk {
-            abiFilters "armeabi-v7a", "x86"
+            abiFilters 'armeabi-v7a', 'x86'
         }
     }
 
@@ -108,7 +108,7 @@ android {
             reset()
             enable enableSeparateBuildPerCPUArchitecture
             universalApk false  // If true, also generate a universal APK
-            include "armeabi-v7a", "x86"
+            include 'armeabi-v7a', 'x86'
         }
     }
 
