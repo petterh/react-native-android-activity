@@ -3,19 +3,19 @@
     "repository": {
         "type": "git",
         "url": "https://github.com/petterh/react-native-android-activity.git"
-      },
-    "version": "5.0.0",
+    },
+    "version": "5.0.1",
     "private": true,
     "scripts": {
         "start": "node node_modules/react-native/local-cli/cli.js start"
     },
     "dependencies": {
         "react": "^16.8.6",
-        "react-native": "^0.59.9"
+        "react-native": "0.60.4"
     },
     "devDependencies": {
         "babel-loader": "8.0.6",
         "babel-plugin-transform-runtime": "6.23.0",
-        "metro-react-native-babel-preset": "^0.54.1"
+        "metro-react-native-babel-preset": "0.55.0"
     }
 }
