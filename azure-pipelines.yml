@@ -19,6 +19,7 @@ steps:
     npm install
     pwd
     ls android/*
+    ls node_modules/react-native/*
   displayName: 'npm install'
   
 - task: Gradle@2
