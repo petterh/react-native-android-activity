@@ -21,9 +21,6 @@ steps:
     ls -R node_modules/react-native/android/com/*
   displayName: 'npm install and diagnostics'
 
-- powershell: cd android; ./gradlew build
-  displayName: "Gradle build"
-
 - task: Gradle@2
   inputs:
     gradleWrapperFile: 'android/gradlew'
