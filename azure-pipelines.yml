@@ -17,6 +17,8 @@ steps:
 
 - script: |
     npm install
+    pwd
+    ls android/*
   displayName: 'npm install'
   
 - task: Gradle@2
