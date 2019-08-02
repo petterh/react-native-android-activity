@@ -29,3 +29,4 @@ steps:
     sonarQubeRunAnalysis: false
     checkStyleRunAnalysis: true
     findBugsRunAnalysis: true
+    workingDirectory: 'android'
