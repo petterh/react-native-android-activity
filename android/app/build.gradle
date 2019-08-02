@@ -19,56 +19,56 @@ def bundleInDebug = hasProperty("bundleInDebug") && Boolean.valueOf(property("bu
 def useDevSupport = !bundleInDebug
 
 project.ext.react = [
-        // The name of the generated asset file containing your JS bundle
-        // bundleAssetName: "index.android.bundle",
+    // The name of the generated asset file containing your JS bundle
+    // bundleAssetName: "index.android.bundle",
 
-        // The entry file for bundle generation
-        // entryFile: "index.android.js",
+    // The entry file for bundle generation
+    // entryFile: "index.android.js",
 
-        // Whether to bundle JS and assets in debug mode. Set this to false if you want to load
-        // JavaScript from a bundler, true if you want to embed the bundle in the apk.
-        // Do not change it here; change the property value in gradle.properties instead.
-        bundleInDebug  : bundleInDebug,
+    // Whether to bundle JS and assets in debug mode. Set this to false if you want to load
+    // JavaScript from a bundler, true if you want to embed the bundle in the apk.
+    // Do not change it here; change the property value in gradle.properties instead.
+    bundleInDebug  : bundleInDebug,
 
-        // Whether to bundle JS and assets in release mode
-        bundleInRelease: true,
+    // Whether to bundle JS and assets in release mode
+    bundleInRelease: true,
 
-        // Whether to bundle JS and assets in another build variant (if configured).
-        // See http://tools.android.com/tech-docs/new-build-system/user-guide#TOC-Build-Variants
-        // The configuration property can be in the following formats
-        //         'bundleIn${productFlavor}${buildType}'
-        //         'bundleIn${buildType}'
-        // bundleInBeta: true,
+    // Whether to bundle JS and assets in another build variant (if configured).
+    // See http://tools.android.com/tech-docs/new-build-system/user-guide#TOC-Build-Variants
+    // The configuration property can be in the following formats
+    //         'bundleIn${productFlavor}${buildType}'
+    //         'bundleIn${buildType}'
+    // bundleInBeta: true,
 
-        // The root of your project, i.e. where "package.json" lives
-        // root: "../../",
+    // The root of your project, i.e. where "package.json" lives
+    // root: "../../",
 
-        // Where to put the JS bundle asset in debug mode
-        // jsBundleDirDebug: "$buildDir/intermediates/assets/debug",
+    // Where to put the JS bundle asset in debug mode
+    // jsBundleDirDebug: "$buildDir/intermediates/assets/debug",
 
-        // Where to put the JS bundle asset in release mode
-        // jsBundleDirRelease: "$buildDir/intermediates/assets/release",
+    // Where to put the JS bundle asset in release mode
+    // jsBundleDirRelease: "$buildDir/intermediates/assets/release",
 
-        // Where to put drawable resources / React Native assets, e.g. the ones you use via
-        // require('./image.png')), in debug mode
-        // resourcesDirDebug: "$buildDir/intermediates/res/merged/debug",
+    // Where to put drawable resources / React Native assets, e.g. the ones you use via
+    // require('./image.png')), in debug mode
+    // resourcesDirDebug: "$buildDir/intermediates/res/merged/debug",
 
-        // Where to put drawable resources / React Native assets, e.g. the ones you use via
-        // require('./image.png')), in release mode
-        // resourcesDirRelease: "$buildDir/intermediates/res/merged/release",
+    // Where to put drawable resources / React Native assets, e.g. the ones you use via
+    // require('./image.png')), in release mode
+    // resourcesDirRelease: "$buildDir/intermediates/res/merged/release",
 
-        // By default the gradle tasks are skipped if none of the JS files or assets change; this means
-        // that we don't look at files in android/ or ios/ to determine whether the tasks are up to
-        // date; if you have any other folders that you want to ignore for performance reasons (gradle
-        // indexes the entire tree), add them here. Alternatively, if you have JS files in android/
-        // for example, you might want to remove it from here.
-        // inputExcludes: ["android/**", "ios/**"],
+    // By default the gradle tasks are skipped if none of the JS files or assets change; this means
+    // that we don't look at files in android/ or ios/ to determine whether the tasks are up to
+    // date; if you have any other folders that you want to ignore for performance reasons (gradle
+    // indexes the entire tree), add them here. Alternatively, if you have JS files in android/
+    // for example, you might want to remove it from here.
+    // inputExcludes: ["android/**", "ios/**"],
 
-        // Override which node gets called and with what additional arguments
-        // nodeExecutableAndArgs: ["node"],
+    // Override which node gets called and with what additional arguments
+    // nodeExecutableAndArgs: ["node"],
 
-        // Supply additional arguments to the packager
-        // extraPackagerArgs: []
+    // Supply additional arguments to the packager
+    // extraPackagerArgs: []
 ]
 
 apply from: "../../node_modules/react-native/react.gradle"
