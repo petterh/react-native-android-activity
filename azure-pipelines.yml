@@ -25,7 +25,8 @@ steps:
   inputs:
     targetType: 'inline'
     script: |
-      cd android; ./gradlew build
+      cd android
+      gradlew build
   displayName: "Gradle build"
 
 - task: Gradle@2
