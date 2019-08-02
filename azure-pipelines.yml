@@ -17,5 +17,15 @@ steps:
 
 - script: |
     npm install
-    npm run build
-  displayName: 'npm install and build'
+  displayName: 'npm install'
+  
+- task: Gradle@2
+  inputs:
+    gradleWrapperFile: 'gradlew'
+    tasks: 'build'
+    publishJUnitResults: true
+    testResultsFiles: '**/TEST-*.xml'
+    javaHomeOption: 'JDKVersion'
+    sonarQubeRunAnalysis: false
+    checkStyleRunAnalysis: true
+    findBugsRunAnalysis: true
