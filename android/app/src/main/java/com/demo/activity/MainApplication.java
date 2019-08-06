@@ -1,8 +1,9 @@
 package com.demo.activity;
 
 import android.app.Application;
-import android.support.annotation.CallSuper;
-import android.support.annotation.NonNull;
+
+import androidx.annotation.CallSuper;
+import androidx.annotation.NonNull;
 
 import com.facebook.react.ReactApplication;
 import com.facebook.react.ReactNativeHost;
