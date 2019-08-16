@@ -4,13 +4,13 @@
         "type": "git",
         "url": "https://github.com/petterh/react-native-android-activity.git"
     },
-    "version": "5.0.1",
+    "version": "5.0.2",
     "private": true,
     "scripts": {
         "start": "node node_modules/react-native/local-cli/cli.js start"
     },
     "dependencies": {
-        "react": "^16.8.6",
+        "react": "16.8.3",
         "react-native": "0.59.9"
     },
     "devDependencies": {
