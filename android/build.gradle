@@ -1,3 +1,5 @@
+import groovy.json.JsonSlurper
+
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
@@ -6,7 +8,7 @@ buildscript {
         google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.4.1'
+        classpath 'com.android.tools.build:gradle:3.4.2'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -17,11 +19,58 @@ allprojects {
     repositories {
         maven {
             // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
-            url "$rootDir/../node_modules/react-native/android"
+            url findReactNative()
         }
 
         mavenLocal()
         jcenter()
         google()
     }
+}
+
+final findReactNative() {
+    final reactNativePath = 'node_modules/react-native/android'
+    final notFoundMessage = 'Unable to find React Native. Have you run yarn from the root?'
+
+    def root = file("$rootDir")
+    if (root == null) {
+        throw new GradleException(notFoundMessage)
+    }
+
+    def reactNativeDir = new File(root, reactNativePath);
+    while (!reactNativeDir.exists()) {
+        root = root.parentFile
+        if (root == null) {
+            throw new GradleException(notFoundMessage)
+        }
+
+        reactNativeDir = new File(root, reactNativePath);
+    }
+
+    return reactNativeDir.toString()
+}
+
+ext {
+    reactNativeVersion = getReactNativeVersion()
+}
+
+/**
+ * Get the React Native version from package.json
+ */
+final getReactNativeVersion() {
+    final json = new JsonSlurper()
+    final packageJsonFile = file('../package.json')
+    if (!packageJsonFile.exists()) {
+        throw new Exception('No package.json found')
+    }
+
+    final packageJson = json.parse packageJsonFile
+    final reactNativeVersion = packageJson.dependencies."react-native"
+    if (!reactNativeVersion) {
+        throw new Exception('No react native version found in package.json dependencies')
+    }
+
+    println "React native version: $reactNativeVersion"
+
+    return reactNativeVersion
 }

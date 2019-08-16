@@ -15,13 +15,11 @@ steps:
     versionSpec: '10.x'
   displayName: 'Install Node.js'
 
-- script: |
-    npm install
-    pwd
-    ls android/*
-    ls node_modules/react-native/*
+- task: Npm@1
+  inputs:
+    command: 'install'
   displayName: 'npm install'
-  
+
 - task: Gradle@2
   inputs:
     gradleWrapperFile: 'android/gradlew'
