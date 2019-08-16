@@ -51,7 +51,7 @@ final findReactNative() {
 }
 
 ext {
-    sdkVersion = 28
+    sdkVersion = 29
     minSdkVersion = 23
     projectVersion = getProjectVersion()
     final dotPos = projectVersion.indexOf('.');

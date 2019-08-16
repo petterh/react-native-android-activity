@@ -2,6 +2,7 @@ package com.demo.activity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.CallSuper;
@@ -25,6 +26,10 @@ public final class ExampleActivity extends ReactActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_example);
+
+        // Display app and React Native versions:
+        this.<TextView>findViewById(R.id.app_version).setText(BuildConfig.VERSION_NAME);
+        this.<TextView>findViewById(R.id.react_native_version).setText(BuildConfig.REACT_NATIVE_VERSION);
 
         findViewById(R.id.go_back_button).setOnClickListener(new View.OnClickListener() {
             @Override

@@ -11,10 +11,28 @@
         android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="36dp"
         android:layout_marginTop="36dp"
         android:text="@string/example_activity_title"
         android:textSize="36sp"
+        android:textStyle="bold"
+    />
+    <TextView
+        android:id="@+id/app_version"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="6.0.3"
+        android:textSize="22sp"
+        android:textStyle="bold"
+    />
+    <TextView
+        android:id="@+id/react_native_version"
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="36dp"
+        tools:text="0.60.5"
+        android:textSize="22sp"
         android:textStyle="bold"
     />
     <LinearLayout
