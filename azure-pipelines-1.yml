@@ -16,5 +16,5 @@ steps:
     scheme: ''
     sdk: 'iphoneos'
     configuration: 'Debug'
-    # xcWorkspacePath: 'ios/project.xcworkspace'
+    xcWorkspacePath: 'ios/project.xcworkspace'
     xcodeVersion: 'default' # Options: 8, 9, 10, default, specifyPath
