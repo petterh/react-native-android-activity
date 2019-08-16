@@ -37,20 +37,24 @@ final findReactNative() {
         throw new GradleException(notFoundMessage)
     }
 
-    def reactNativeDir = new File(root, reactNativePath);
+    def reactNativeDir = new File(root, reactNativePath)
     while (!reactNativeDir.exists()) {
         root = root.parentFile
         if (root == null) {
             throw new GradleException(notFoundMessage)
         }
 
-        reactNativeDir = new File(root, reactNativePath);
+        reactNativeDir = new File(root, reactNativePath)
     }
 
     return reactNativeDir.toString()
 }
 
 ext {
+    sdkVersion = 28
+    minSdkVersion = 23
+    projectVersion = getProjectVersion()
+    projectVersionCode = Integer.parseInt(projectVersion.substring(0, projectVersion.indexOf('.')))
     reactNativeVersion = getReactNativeVersion()
 }
 
@@ -65,16 +69,41 @@ final getReactNativeVersion() {
     }
 
     final packageJson = json.parse packageJsonFile
-    def reactNativeVersion = packageJson.dependencies."react-native"
-    if (!reactNativeVersion) {
+    def version = packageJson.dependencies."react-native"
+    if (!version) {
         throw new Exception('No react native version found in package.json dependencies')
     }
 
-    println "React native version: $reactNativeVersion"
+    println "React native version: $version"
 
-    if (reactNativeVersion.startsWith('^')) {
-        reactNativeVersion = reactNativeVersion.substring(1);
+    if (version.startsWith('^')) {
+        version = version.substring(1)
     }
 
-    return reactNativeVersion
+    return version
+}
+
+/**
+ * Get the Project version from package.json
+ */
+final getProjectVersion() {
+    final json = new JsonSlurper()
+    final packageJsonFile = file('../package.json')
+    if (!packageJsonFile.exists()) {
+        throw new Exception('No package.json found')
+    }
+
+    final packageJson = json.parse packageJsonFile
+    def version = packageJson.version
+    if (!version) {
+        throw new Exception('No project version found in package.json')
+    }
+
+    println "Project version: $version"
+
+    if (version.startsWith('^')) {
+        version = version.substring(1)
+    }
+
+    return version
 }
