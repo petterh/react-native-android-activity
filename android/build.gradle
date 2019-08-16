@@ -65,12 +65,16 @@ final getReactNativeVersion() {
     }
 
     final packageJson = json.parse packageJsonFile
-    final reactNativeVersion = packageJson.dependencies."react-native"
+    def reactNativeVersion = packageJson.dependencies."react-native"
     if (!reactNativeVersion) {
         throw new Exception('No react native version found in package.json dependencies')
     }
 
     println "React native version: $reactNativeVersion"
+
+    if (reactNativeVersion.startsWith('^')) {
+        reactNativeVersion = reactNativeVersion.substring(1);
+    }
 
     return reactNativeVersion
 }
