@@ -51,12 +51,10 @@ final findReactNative() {
 }
 
 ext {
-    sdkVersion = 29
+    sdkVersion = 28
     minSdkVersion = 23
     projectVersion = getProjectVersion()
-    final dotPos = projectVersion.indexOf('.');
-    projectVersionCode = Integer.parseInt(projectVersion.substring(0, dotPos));
-    println projectVersionCode
+    projectVersionCode = Integer.parseInt(projectVersion.substring(0, projectVersion.indexOf('.')));
     reactNativeVersion = getReactNativeVersion()
 }
 
