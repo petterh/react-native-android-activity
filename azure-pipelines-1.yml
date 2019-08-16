@@ -23,7 +23,7 @@ steps:
 - task: Xcode@5
   inputs:
     actions: 'build'
-    scheme: ''
+    scheme: 'Activity'
     sdk: 'iphoneos'
     configuration: 'Debug'
     xcWorkspacePath: '**/Activity.xcodeproj/project.xcworkspace'
