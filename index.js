@@ -55,7 +55,7 @@ export default class ActivityDemoComponent extends Component {
         </Text>
         <Text style={styles.instructions}>
           <Text>To get started, edit </Text>
-          <Text style={styles.bold}>index.android.js</Text>
+          <Text style={styles.bold}>index.js</Text>
           <Text>.</Text>
         </Text>
         <Text style={styles.instructions}>

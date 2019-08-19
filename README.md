@@ -30,7 +30,7 @@ The starting point for this sample is a slightly tweaked standard React Native p
 
 ![Android Demo App](img/AndroidScreenShot.png)
 
-The `TextInput` box appears only in the Android version. Since both platforms use the same JavaScript, I took the opportunity to demonstrate how to handle platform-specific tweaks &ndash; look for `Platform.select` in [`index.android.js`](index.android.js).
+The `TextInput` box appears only in the Android version. Since both platforms use the same JavaScript, I took the opportunity to demonstrate how to handle platform-specific tweaks &ndash; look for `Platform.select` in [`index.js`](index.js).
 
 ## Getting started
 
@@ -83,7 +83,7 @@ export default class ActivityDemoComponent extends Component {
           Welcome to React Native!
         </Text>
         <Text style={styles.instructions}>
-          To get started, edit index.android.js
+          To get started, edit index.js
         </Text>
         <!-- Menu buttons: https://facebook.github.io/react-native/docs/debugging -->
         <Text style={styles.instructions}>

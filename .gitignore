@@ -1,11 +1,9 @@
 .npmrc
 
 # OSX
-#
 .DS_Store
 
 # Xcode
-#
 build/
 *.pbxuser
 !default.pbxuser
@@ -27,15 +25,16 @@ DerivedData
 ios/Pods/
 
 # Android/IntelliJ
-#
-build/
+.classpath
 .idea
 .gradle
+.project
+.settings/
+build/
 local.properties
 *.iml
 
 # node.js
-#
 node_modules/
 npm-debug.log
 yarn-error.log
