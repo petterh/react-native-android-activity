@@ -63,7 +63,8 @@ The `TextInput` box appears only in the Android version. Since both platforms us
 
 ### iOS
 
-* Open the xOS project in Xcode and run it. This automatically starts a bundler.
+* Open the iOS project in Xcode: `open Activity.xcworkspace`.
+* Run the Activity application.
 
 <!-- markdownlint-enable MD031 -->
 
