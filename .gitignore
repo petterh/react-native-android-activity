@@ -24,7 +24,7 @@ DerivedData
 *.xcuserstate
 
 # CocoaPods
-/ios/Pods/
+ios/Pods/
 
 # Android/IntelliJ
 #
@@ -55,3 +55,6 @@ buck-out/
 fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots
+
+# Visual Studio Code
+.vscode/

@@ -43,7 +43,7 @@ The `TextInput` box appears only in the Android version. Since both platforms us
   `git clone https://github.com/petterh/react-native-android-activity.git`\
   (Alternatively, create your own fork and clone that instead.)
 * `cd react-native-android-activity`
-* Run `yarn` to download dependencies
+* Run `yarn` to download dependencies (or, if you wish, `npm install`)
 * For Android development (using Windows, Mac or Linux), install [Android Studio](https://developer.android.com/studio/install.html) (follow instructions [on this page](https://facebook.github.io/react-native/docs/getting-started.html)).
 * For iOS development (Mac only), install [Xcode](https://developer.apple.com/xcode/).
 * By default, the debug build of the app loads the JS bundle from your dev box, so start a bundler:
@@ -63,7 +63,8 @@ The `TextInput` box appears only in the Android version. Since both platforms us
 
 ### iOS
 
-* Open the xOS project in Xcode and run it. This automatically starts a bundler.
+* Open the iOS project in Xcode: `open Activity.xcworkspace`.
+* Run the Activity application.
 
 <!-- markdownlint-enable MD031 -->
 

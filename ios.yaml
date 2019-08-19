@@ -20,6 +20,10 @@ steps:
     command: 'install'
   displayName: 'npm install'
 
+- task: CocoaPods@0
+  inputs:
+    workingDirectory: 'ios'
+    forceRepoUpdate: false
 - task: Xcode@5
   inputs:
     actions: 'build'
@@ -27,5 +31,5 @@ steps:
     configuration: 'Debug'
     scheme: 'Activity'
     sdk: 'iphoneos'
-    xcWorkspacePath: '**/Activity.xcodeproj/project.xcworkspace'
+    xcWorkspacePath: '**/Activity.xcworkspace'
     xcodeVersion: 'default' # Options: 8, 9, 10, default, specifyPath
