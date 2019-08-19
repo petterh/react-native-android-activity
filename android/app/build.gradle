@@ -33,6 +33,8 @@ project.ext.react = [
     // Whether to bundle JS and assets in release mode
     bundleInRelease: true,
 
+    enableHermes: false,
+
     // Whether to bundle JS and assets in another build variant (if configured).
     // See http://tools.android.com/tech-docs/new-build-system/user-guide#TOC-Build-Variants
     // The configuration property can be in the following formats
@@ -164,4 +166,6 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation("com.facebook.react:react-native:$rootProject.ext.reactNativeVersion")
+    //noinspection GradleDynamicVersion
+    implementation 'org.webkit:android-jsc:+'
 }
