@@ -20,10 +20,10 @@ final useDevSupport = !bundleInDebug
 
 project.ext.react = [
     // The name of the generated asset file containing your JS bundle
-    // bundleAssetName: "index.android.bundle",
+    bundleAssetName: "index.bundle",
 
     // The entry file for bundle generation
-    // entryFile: "index.android.js",
+    entryFile: "index.js",
 
     // Whether to bundle JS and assets in debug mode. Set this to false if you want to load
     // JavaScript from a bundler, true if you want to embed the bundle in the apk.

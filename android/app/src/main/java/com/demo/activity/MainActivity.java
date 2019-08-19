@@ -16,7 +16,7 @@ import com.facebook.react.devsupport.interfaces.DevOptionHandler;
 import com.facebook.react.devsupport.interfaces.DevSupportManager;
 
 /**
- * The main activity, which hosts the React Native view registered in {@code index.android.js}.
+ * The main activity, which hosts the React Native view registered in {@code index.js}.
  */
 public final class MainActivity extends ReactActivity {
 

@@ -59,7 +59,7 @@
 }
 
 - (NSURL *)sourceURLForBridge:(RCTBridge *)bridge {
-    NSURL *jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index.android"
+    NSURL *jsCodeLocation = [[RCTBundleURLProvider sharedSettings] jsBundleURLForBundleRoot:@"index"
                                                                            fallbackResource:nil];
     return jsCodeLocation;
 }
