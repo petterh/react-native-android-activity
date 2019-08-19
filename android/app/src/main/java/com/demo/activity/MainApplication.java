@@ -41,14 +41,11 @@ public final class MainApplication extends Application implements ReactApplicati
         }
 
         /**
-         * Returns the name of the bundle in assets. If this is {@code null}, and no file path is specified
-         * for the bundle, the app will only work with {@link #getUseDeveloperSupport} enabled and will
-         * always try to load the JS bundle from the packager server.
+         * Returns the name of the bundle in assets.
          */
-        @Nullable
+        @NonNull
         @Override
         protected String getBundleAssetName() {
-            String bundleAssetName = super.getBundleAssetName();
             return JS_BUNDLE_NAME;
         }
 
