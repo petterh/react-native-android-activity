@@ -14,8 +14,6 @@ import com.facebook.soloader.SoLoader;
 import java.util.Arrays;
 import java.util.List;
 
-import javax.annotation.Nullable;
-
 /**
  * Base class for maintaining global application state -- in this case, the {@link ReactNativeHost}.
  */
