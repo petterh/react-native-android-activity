@@ -342,3 +342,7 @@ I just added a second version of `ActivityStarterModule.getActivityName` called 
 
 * [Native Modules on Android](https://facebook.github.io/react-native/docs/native-modules-android.html)
 * [Native Modules on iOS](https://facebook.github.io/react-native/docs/native-modules-ios)
+
+## Issues
+
+The various Android apps explicitly call `SoLoader.init` because of [this issue](https://github.com/facebook/react-native/issues/26342). I have a [PR to fix it](https://github.com/facebook/react-native/pull/26343). Once this is in (assuming Facebook accepts it) I'll remove them.
