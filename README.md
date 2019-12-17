@@ -4,7 +4,7 @@
 
 | Android | iOS |
 |---|---|
-| [![Build Status](https://dev.azure.com/petter0012/react-native-android-activity/_apis/build/status/petterh.react-native-android-activity?branchName=master)](https://dev.azure.com/petter0012/react-native-android-activity/_build/latest?definitionId=1&branchName=master) | [[![Build Status](https://dev.azure.com/petter0012/react-native-android-activity/_apis/build/status/petterh.react-native-android-activity%20(1)?branchName=master)](https://dev.azure.com/petter0012/react-native-android-activity/_build/latest?definitionId=2&branchName=master) |
+| [![Build Status](https://dev.azure.com/petter0012/react-native-android-activity/_apis/build/status/petterh.react-native-android-activity?branchName=master)](https://dev.azure.com/petter0012/react-native-android-activity/_build/latest?definitionId=1&branchName=master) | [![Build Status](https://dev.azure.com/petter0012/react-native-android-activity/_apis/build/status/petterh.react-native-android-activity%20(1)?branchName=master)](https://dev.azure.com/petter0012/react-native-android-activity/_build/latest?definitionId=2&branchName=master) |
 
 This sample, which grew out of a [question on Stack Overflow](https://stackoverflow.com/questions/42253397/call-android-activity-from-react-native-code/43675819), demonstrates the interface between React Native JavaScript and native code &ndash; Java on Android, Objective-C on iOS.
 
