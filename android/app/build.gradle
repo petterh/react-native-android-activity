@@ -164,8 +164,11 @@ android {
 }
 
 dependencies {
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.0-beta-4'
+
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation("com.facebook.react:react-native:$rootProject.ext.reactNativeVersion")
+
     //noinspection GradleDynamicVersion
     implementation 'org.webkit:android-jsc:+'
 }
