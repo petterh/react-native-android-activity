@@ -14,7 +14,7 @@
         "react-native": "0.60.5"
     },
     "devDependencies": {
-        "babel-loader": "8.0.6",
+        "babel-loader": "8.3.0",
         "babel-plugin-transform-runtime": "6.23.0",
         "metro-react-native-babel-preset": "0.55.0",
         "ws": ">=3.3.1"
